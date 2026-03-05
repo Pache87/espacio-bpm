@@ -13,7 +13,13 @@ let playing  = false;
 let rafId    = null;
 let lastBeat = -1;
 
-const rpVideo = document.getElementById('rp-video');
+// Referencias cacheadas — evitan getElementById en cada frame
+const rpVideo       = document.getElementById('rp-video');
+const rpProgressFill = document.getElementById('rp-progress-fill');
+const rpBeatDots    = [0,1,2,3].map(i => document.getElementById('rp-bd' + i));
+let   rpOverlayEl   = null;   // se asigna al crear el overlay en cargarEjercicio
+let   rpOverlayNum  = null;
+let   lastCdBeat    = -1;     // para el countdown, evita writes innecesarios
 
 function rpClearAllNotes() {
   document.querySelectorAll('.note-active').forEach(el => el.classList.remove('note-active'));
@@ -25,29 +31,29 @@ function rpDeactivateNotes(ids) {
   ids.forEach(id => { const el = document.getElementById(id); if (el) el.classList.remove('note-active'); });
 }
 
+let lastBeatDot = -1;
 function rpUpdateBeatDots(t) {
   const b = Math.floor((t / msPerBeat) % 4);
-  for (let i = 0; i < 4; i++) {
-    document.getElementById('rp-bd' + i).classList.toggle('active', i === b);
-  }
+  if (b === lastBeatDot) return;          // nada cambió, no tocar el DOM
+  rpBeatDots[lastBeatDot]?.classList.remove('active');
+  rpBeatDots[b]?.classList.add('active');
+  lastBeatDot = b;
 }
 function rpClearBeatDots() {
-  for (let i = 0; i < 4; i++) document.getElementById('rp-bd' + i).classList.remove('active');
+  rpBeatDots.forEach(d => d?.classList.remove('active'));
+  lastBeatDot = -1;
 }
 
 function rpUpdateCountdownOverlay(elapsedMs) {
-  const overlay = document.getElementById('rp-countdown-overlay');
-  if (!overlay) return;
-  if (elapsedMs >= PRECUENTA_MS) { overlay.classList.remove('visible'); return; }
-  overlay.classList.add('visible');
+  if (!rpOverlayEl) return;
+  if (elapsedMs >= PRECUENTA_MS) { rpOverlayEl.classList.remove('visible'); return; }
+  rpOverlayEl.classList.add('visible');
   const beat = Math.floor(elapsedMs / msPerBeat);
-  const numEl = overlay.querySelector('.rp-cd-number');
-  if (numEl && numEl.dataset.beat !== String(beat)) {
-    numEl.dataset.beat = String(beat);
-    numEl.textContent = beat + 1;
-    numEl.classList.remove('pop');
-    void numEl.offsetWidth;
-    numEl.classList.add('pop');
+  if (beat !== lastCdBeat && rpOverlayNum) {
+    lastCdBeat = beat;
+    rpOverlayNum.textContent = beat + 1;
+    // Alternar clase en vez de void offsetWidth (evita reflow forzado)
+    rpOverlayNum.classList.toggle('pop-alt', beat % 2 === 0);
   }
 }
 
@@ -56,7 +62,7 @@ function rpTick() {
   const elapsedMs = rpVideo.currentTime * 1000;
   rpUpdateCountdownOverlay(elapsedMs);
   const ejercicioMs = Math.max(0, elapsedMs - PRECUENTA_MS);
-  document.getElementById('rp-progress-fill').style.width =
+  rpProgressFill.style.width =
     Math.min((ejercicioMs / totalDurMs) * 100, 100) + '%';
   if (elapsedMs >= PRECUENTA_MS) {
     const t = elapsedMs - PRECUENTA_MS;
@@ -95,9 +101,8 @@ function rpStop() {
   if (rafId) cancelAnimationFrame(rafId);
   rpVideo.pause(); rpVideo.currentTime = 0;
   rpClearAllNotes(); rpClearBeatDots();
-  document.getElementById('rp-progress-fill').style.width = '0%';
-  const ov = document.getElementById('rp-countdown-overlay');
-  if (ov) ov.classList.remove('visible');
+  rpProgressFill.style.width = '0%';
+  if (rpOverlayEl) rpOverlayEl.classList.remove('visible');
   const btn = document.getElementById('rp-btn-play');
   btn.textContent = '▶ PLAY'; btn.classList.remove('playing', 'counting');
   lastBeat = -1;
@@ -169,8 +174,11 @@ function cargarEjercicio(id) {
     if (existing) existing.remove();
     const overlay = document.createElement('div');
     overlay.id = 'rp-countdown-overlay';
-    overlay.innerHTML = `<div class="rp-cd-number" data-beat="">—</div>`;
+    overlay.innerHTML = `<div class="rp-cd-number">—</div>`;
     document.querySelector('.rp-video-wrap').appendChild(overlay);
+    rpOverlayEl  = overlay;
+    rpOverlayNum = overlay.querySelector('.rp-cd-number');
+    lastCdBeat   = -1;
 
     TIMEMAP      = timemap;
     baseTempo    = timemap[0]?.tempo || 96;
@@ -285,3 +293,23 @@ function rpSyncSelect(id) {
   const sel = document.getElementById('rp-select-mobile');
   if (sel) sel.value = id;
 }
+// ============================================================
+// PAUSA THREE.JS cuando no está en pantalla
+// three-viewer.js debe exponer window.threeViewerPause / Resume
+// ============================================================
+(function() {
+  const panelVisor = document.getElementById('panel-visor');
+  if (!panelVisor) return;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        window.threeViewerResume?.();
+      } else {
+        window.threeViewerPause?.();
+      }
+    });
+  }, { threshold: 0.01 });
+
+  observer.observe(panelVisor);
+})();

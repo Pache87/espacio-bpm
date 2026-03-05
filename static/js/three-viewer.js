@@ -432,4 +432,8 @@ if (panelVisor) {
   observer.observe(panelVisor, { attributes: true, attributeFilter: ["class"] });
 }
 
-  animate();
+// Exponer pause/resume para que reproductor.js pueda llamarlos
+window.threeViewerPause  = () => { renderActive = false; };
+window.threeViewerResume = () => { renderActive = true; clock.getDelta(); };
+
+animate();
