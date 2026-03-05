@@ -39,3 +39,5 @@ usuarios.json
 # VERCEL (web anterior)
 # ==============================
 .vercel/
+.vercel
+.env*.local

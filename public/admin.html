@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | ESPACIO BPM</title>
+<link rel="stylesheet" href="/static/css/styles.css">
+<link rel="stylesheet" href="/static/css/admin.css">
+</head>
+
+<body>
+
+<!-- LOGIN ADMIN -->
+<div id="admin-login">
+  <div class="login-glass">
+    <h3>ADMIN — ESPACIO BPM</h3>
+    <div class="input-group">
+      <input type="password" id="admin-password" placeholder=" " required>
+      <label>Contraseña</label>
+    </div>
+    <button class="login-btn" id="admin-login-btn">Ingresar</button>
+    <div id="admin-login-error" style="margin-top:14px; text-align:center; font-size:.85rem; color:#e05555; min-height:20px;"></div>
+  </div>
+</div>
+
+<!-- PANEL ADMIN -->
+<div id="admin-panel" style="display:none;">
+  <header>
+    <nav>
+      <img src="/static/img/logo.png" alt="ESPACIO BPM">
+      <ul>
+        <li><a href="/">VOLVER AL SITIO</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="admin-wrap">
+
+    <div class="admin-header">
+      <h1>PANEL DE ADMINISTRACIÓN</h1>
+      <button class="btn-secondary" id="admin-logout-btn">SALIR</button>
+    </div>
+
+    <!-- LISTA DE ALUMNOS -->
+    <button class="btn-nuevo-alumno" id="btn-nuevo-alumno">+ NUEVO ALUMNO</button>
+    <div class="alumnos-grid" id="alumnos-grid"></div>
+
+    <!-- EDITOR -->
+    <div id="editor-alumno" class="panel-section">
+
+      <div class="editor-tabs">
+        <button class="editor-tab active" data-tab="datos">DATOS</button>
+        <button class="editor-tab" data-tab="material">MATERIAL</button>
+        <button class="editor-tab" data-tab="calendario">CALENDARIO</button>
+        <button class="editor-tab" data-tab="notas">NOTAS</button>
+      </div>
+
+      <!-- TAB DATOS -->
+      <div class="editor-panel active" id="tab-datos">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Usuario</label>
+            <input type="text" id="edit-usuario">
+          </div>
+          <div class="form-group">
+            <label>Contraseña</label>
+            <input type="text" id="edit-password">
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn-guardar" id="btn-guardar-datos">GUARDAR</button>
+          <button class="btn-danger" id="btn-eliminar-alumno">ELIMINAR ALUMNO</button>
+        </div>
+      </div>
+
+      <!-- TAB MATERIAL -->
+      <div class="editor-panel" id="tab-material">
+        <div class="material-filtros">
+          <button class="filtro-btn active" data-filtro="todos">TODOS</button>
+          <button class="filtro-btn" data-filtro="pdf">PDF</button>
+          <button class="filtro-btn" data-filtro="audio">AUDIO</button>
+        </div>
+        <div class="material-layout">
+          <div class="material-list" id="material-list"></div>
+          <div class="material-preview" id="material-preview">
+            <div class="material-preview-empty">
+              <span>Seleccioná un PDF para previsualizarlo</span>
+            </div>
+            <iframe id="pdf-iframe" src="" style="display:none;"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB CALENDARIO -->
+      <div class="editor-panel" id="tab-calendario">
+        <div class="cal-split">
+
+          <!-- IZQUIERDA: calendario -->
+          <div class="cal-split-left">
+            <div class="cal-admin-top">
+              <div class="cal-nav">
+                <button id="cal-prev">‹</button>
+                <div class="cal-nav-title" id="cal-title"></div>
+                <button id="cal-next">›</button>
+              </div>
+              <button class="btn-multisel" id="btn-multisel">✦ SELECCIÓN MÚLTIPLE</button>
+              <button class="btn-limpiar-sel" id="btn-limpiar-sel">LIMPIAR (0)</button>
+            </div>
+            <div style="display:grid; grid-template-columns: repeat(7,1fr); gap:6px; margin-bottom:8px;">
+              <div class="admin-cal-header">Dom</div>
+              <div class="admin-cal-header">Lun</div>
+              <div class="admin-cal-header">Mar</div>
+              <div class="admin-cal-header">Mié</div>
+              <div class="admin-cal-header">Jue</div>
+              <div class="admin-cal-header">Vie</div>
+              <div class="admin-cal-header">Sáb</div>
+            </div>
+            <div class="admin-calendar-grid" id="admin-cal-grid"></div>
+          </div>
+
+          <!-- DERECHA: info clase -->
+          <div class="cal-split-right">
+            <div class="add-clase-form visible" id="add-clase-form" style="margin-top:0;">
+              <h5 id="add-clase-titulo">SELECCIONÁ UN DÍA</h5>
+              <div class="clase-form-row">
+                <div class="form-group">
+                  <label>Estado</label>
+                  <select class="estado-select" id="clase-estado">
+                    <option value="pagada">Pagada</option>
+                    <option value="pendiente">Pendiente</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Hora</label>
+                  <input type="time" id="clase-hora">
+                </div>
+                <div class="form-group" style="flex:2;">
+                  <label>Nota</label>
+                  <input type="text" id="clase-nota" placeholder="Opcional...">
+                </div>
+              </div>
+              <div class="btn-row" style="margin-top:14px;">
+                <button class="btn-guardar" id="btn-guardar-clase">CONFIRMAR</button>
+                <button class="btn-danger" id="btn-eliminar-clase">ELIMINAR</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB NOTAS -->
+      <div class="editor-panel" id="tab-notas">
+        <div class="form-group">
+          <label>Notas del profesor</label>
+          <textarea id="edit-notas" rows="6" placeholder="Escribí las notas para este alumno..."></textarea>
+        </div>
+        <p style="font-size:.75rem; color:var(--text-muted); margin-top:8px; letter-spacing:.05em;">Se guarda automáticamente al salir del campo.</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL NUEVO ALUMNO -->
+<div class="modal-overlay" id="modal-nuevo">
+  <div class="modal-box">
+    <h3>NUEVO ALUMNO</h3>
+    <div class="form-group" style="margin-bottom:18px;">
+      <label>Usuario</label>
+      <input type="text" id="nuevo-usuario">
+    </div>
+    <div class="form-group" style="margin-bottom:24px;">
+      <label>Contraseña</label>
+      <input type="text" id="nuevo-password">
+    </div>
+    <div class="btn-row">
+      <button class="btn-guardar" id="btn-confirmar-nuevo">CREAR</button>
+      <button class="btn-secondary" id="btn-cancelar-nuevo">CANCELAR</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="/static/js/admin.js"></script>
+
+</body>
+</html>
