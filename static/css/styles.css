@@ -1215,4 +1215,22 @@ html, body {
   /* countdown */
   #rp-countdown-overlay { border-radius: 0; }
   .rp-cd-number { font-size: 4rem; }
-}
+
+  /* Reemplazar blur por fondo sólido — scroll más fluido */
+  header nav,
+  .notation-panel {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(8, 8, 8, 0.96);
+  }
+
+  /* Detener animación glow en mobile */
+  .viewer-dot {
+    animation: none;
+    box-shadow: 0 0 4px var(--gold);
+  }
+
+} /* <-- esta llave cierra el @media, ya existía */
+
+
+
