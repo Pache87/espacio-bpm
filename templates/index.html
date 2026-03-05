@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO básico -->
+  <meta name="description" content="Espacio BPM — Clases de batería, grabación y producción musical en Buenos Aires.">
+  <meta name="robots" content="index, follow">
+  <!-- Open Graph (WhatsApp / redes) -->
+  <meta property="og:title" content="ESPACIO BPM | Clases y Producción">
+  <meta property="og:description" content="Formación profesional en batería · Grabación · Producción musical en Buenos Aires.">
+  <meta property="og:type" content="website">
+  <title>ESPACIO BPM | Clases y Producción</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Espacio BPM logo">
+    <div class="menu-toggle" aria-label="Abrir menú" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul>
+      <li><a href="#inicio">INICIO</a></li>
+      <li><a href="#clases">CLASES</a></li>
+      <li><a href="#estudio">ESTUDIO</a></li>
+      <li><a href="#contacto">CONTACTO</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="inicio">
+  <h1>ESPACIO BPM</h1>
+  <h2>ESTUDIO · CLASES · PRODUCCIÓN</h2>
+  <p>Formación profesional en batería · Grabación · Producción musical</p>
+  <a href="#contacto">Reservar Sesión</a>
+</section>
+
+<!-- CLASES -->
+<section id="clases">
+  <h2>CLASES DE BATERÍA</h2>
+
+  <div class="explorar-cta">
+    <a href="/explorar" class="explorar-btn">
+      <span class="explorar-btn-label">EXPLORAR PROGRAMA</span>
+      <span class="explorar-btn-arrow">→</span>
+    </a>
+    <p class="explorar-sub">Ejercicios · Videos · Partituras</p>
+  </div>
+
+  <div class="clases-layout">
+
+    <!-- LOGIN -->
+    <div class="login-glass">
+      <h3>ÁREA DEL ALUMNO</h3>
+
+      <form id="login-form" novalidate>
+
+        <div class="input-group">
+          <input type="text" id="usuario" name="usuario" placeholder=" " required autocomplete="username">
+          <label for="usuario">Usuario</label>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="password" name="password" placeholder=" " required autocomplete="current-password">
+          <label for="password">Contraseña</label>
+        </div>
+
+        <button type="submit" class="login-btn">Ingresar</button>
+
+      </form>
+
+      <div id="resultado-login" role="alert" aria-live="polite"></div>
+
+    </div>
+
+    <!-- SLIDER -->
+    <div class="clases-slider">
+      <div class="slider-track">
+        <img src="{{ url_for('static', filename='img/alumno.jpg') }}"  alt="Alumno en clase de batería">
+        <img src="{{ url_for('static', filename='img/alumno2.jpg') }}" alt="Alumno en clase de batería">
+        <img src="{{ url_for('static', filename='img/alumno3.jpg') }}" alt="Alumno en clase de batería">
+        <img src="{{ url_for('static', filename='img/alumno4.jpg') }}" alt="Alumno en clase de batería">
+        <img src="{{ url_for('static', filename='img/alumno5.jpg') }}" alt="Alumno en clase de batería">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ESTUDIO -->
+<section id="estudio">
+  <h2>ESTUDIO</h2>
+
+  <div class="studio-tabs" role="tablist">
+    <button class="tab-btn active" data-tab="galeria" role="tab" aria-selected="true"  aria-controls="galeria">GALERÍA</button>
+    <button class="tab-btn"        data-tab="live"    role="tab" aria-selected="false" aria-controls="live">LIVE</button>
+    <button class="tab-btn"        data-tab="discos"  role="tab" aria-selected="false" aria-controls="discos">DISCOS</button>
+  </div>
+
+  <div class="studio-content">
+
+    <div class="tab-panel active" id="galeria" role="tabpanel">
+      <div class="studio-gallery">
+        <img src="{{ url_for('static', filename='img/estudio1.jpg') }}" alt="Estudio de grabación — vista 1">
+        <img src="{{ url_for('static', filename='img/estudio2.jpg') }}" alt="Estudio de grabación — vista 2">
+        <img src="{{ url_for('static', filename='img/estudio3.jpg') }}" alt="Estudio de grabación — vista 3">
+        <img src="{{ url_for('static', filename='img/estudio4.jpg') }}" alt="Estudio de grabación — vista 4">
+        <img src="{{ url_for('static', filename='img/estudio5.jpg') }}" alt="Estudio de grabación — vista 5">
+        <img src="{{ url_for('static', filename='img/estudio6.jpg') }}" alt="Estudio de grabación — vista 5">
+      </div>
+    </div>
+
+    <div class="tab-panel" id="live" role="tabpanel">
+      <div class="studio-video">
+        <iframe
+          src="https://www.youtube.com/embed/dSW_eww_8d0"
+          title="Video en vivo — Espacio BPM"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="discos" role="tabpanel">
+      <div class="studio-albums">
+        <iframe src="https://open.spotify.com/embed/album/77fGm8HGYR7OmoBCk7R9TF" title="Álbum en Spotify" loading="lazy"></iframe>
+        <iframe src="https://open.spotify.com/embed/album/4bDC7q9gIVO0iodIjnThkT" title="Álbum en Spotify" loading="lazy"></iframe>
+        <iframe src="https://open.spotify.com/embed/album/352F8ier8IpxOAxMIZWYZI" title="Álbum en Spotify" loading="lazy"></iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <h2>CONTACTO</h2>
+
+  <div class="contact-container">
+
+    <div class="contact-info">
+
+      <div class="contact-item">
+        <span class="contact-label">Dirección</span>
+        <p>Adolfo P. Carranza 2576<br>Buenos Aires</p>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-label">Teléfono</span>
+        <p><a href="tel:+541158042491">+54 11 5804-2491</a></p>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <p><a href="mailto:arielpacheco59@gmail.com">info@espaciobpm.com.ar</a></p>
+      </div>
+
+      <div class="contact-item">
+        <span class="contact-label">Instagram</span>
+        <p><a href="https://instagram.com/arielpachecomusica.visuales" target="_blank" rel="noopener">@arielpachecomusica.visuales</a></p>
+      </div>
+
+    </div>
+
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps?q=Adolfo+P.+Carranza+2576,+Buenos+Aires&output=embed"
+        title="Ubicación Espacio BPM"
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <span class="close-lightbox" role="button" tabindex="0" aria-label="Cerrar">&times;</span>
+  <img id="lightbox-img" alt="">
+</div>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/5491158042491?text=Hola%20Ariel,%20quiero%20consultar%20por%20las%20clases%20de%20bater%C3%ADa."
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Consultar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

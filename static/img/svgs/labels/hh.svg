@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" font-family="'Bebas Neue', sans-serif">
+  <g fill="white" stroke="white">
+
+    <!-- HI-HAT -->
+    <text x="12" y="18" stroke="none" font-size="15" letter-spacing="1.5">HI-HAT</text>
+    <!-- Plica: tope en y=44, baja hasta el vértice superior-derecho de la X en (54,71) -->
+  <line x1="54" y1="35" x2="54" y2="62" stroke-width="1.5"/>
+    <g stroke-width="2" stroke-linecap="round">
+      <line x1="46" y1="62" x2="54" y2="70"/>
+      <line x1="54" y1="62" x2="46" y2="70"/>
+    </g>
+    <!-- Pentagrama: primera línea en y=75, 9px entre líneas -->
+    <g stroke-width="1">
+      <line x1="12" y1="75"  x2="88" y2="75"/>
+      <line x1="12" y1="84"  x2="88" y2="84"/>
+      <line x1="12" y1="93"  x2="88" y2="93"/>
+      <line x1="12" y1="102" x2="88" y2="102"/>
+      <line x1="12" y1="111" x2="88" y2="111"/>
+    </g>
+    <line x1="12" y1="75" x2="12" y2="111" stroke-width="2.2"/>
+    <line x1="88" y1="75" x2="88" y2="111" stroke-width="2.2"/>
+
+    <!-- HH PISADO -->
+    <text x="108" y="18" stroke="none" font-size="15" letter-spacing="1.5">HH PISADO</text>
+    <!-- Pentagrama -->
+    <g stroke-width="1">
+      <line x1="108" y1="75"  x2="184" y2="75"/>
+      <line x1="108" y1="84"  x2="184" y2="84"/>
+      <line x1="108" y1="93"  x2="184" y2="93"/>
+      <line x1="108" y1="102" x2="184" y2="102"/>
+      <line x1="108" y1="111" x2="184" y2="111"/>
+    </g>
+    <line x1="108" y1="75" x2="108" y2="111" stroke-width="2.2"/>
+    <line x1="184" y1="75" x2="184" y2="111" stroke-width="2.2"/>
+    <!-- X debajo del staff, centrada en (146, 120) -->
+    <g stroke-width="2" stroke-linecap="round">
+      <line x1="142" y1="116" x2="150" y2="124"/>
+      <line x1="150" y1="116" x2="142" y2="124"/>
+    </g>
+    <!-- Plica hacia abajo desde vértice inferior-izq (142,124) -->
+    <line x1="142" y1="124" x2="142" y2="147" stroke-width="1.5"/>
+
+    <!-- HH ABIERTO -->
+    <text x="12" y="173" stroke="none" font-size="15" letter-spacing="1.5">HH ABIERTO</text>
+    <line x1="54" y1="192" x2="54" y2="219" stroke-width="1.5"/>
+    <circle cx="54" cy="182" r="5" fill="none" stroke="white" stroke-width="1.5"/>
+    <g stroke-width="2" stroke-linecap="round">
+      <line x1="46" y1="219" x2="54" y2="227"/>
+      <line x1="54" y1="219" x2="46" y2="227"/>
+    </g>
+    <!-- Pentagrama: primera línea en y=232 -->
+    <g stroke-width="1">
+      <line x1="12" y1="232" x2="88" y2="232"/>
+      <line x1="12" y1="241" x2="88" y2="241"/>
+      <line x1="12" y1="250" x2="88" y2="250"/>
+      <line x1="12" y1="259" x2="88" y2="259"/>
+      <line x1="12" y1="268" x2="88" y2="268"/>
+    </g>
+    <line x1="12" y1="232" x2="12" y2="268" stroke-width="2.2"/>
+    <line x1="88" y1="232" x2="88" y2="268" stroke-width="2.2"/>
+
+  </g>
+</svg>

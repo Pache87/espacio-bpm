@@ -1,0 +1,94 @@
+{
+  "niveles": [
+    {
+      "nivel": 1,
+      "nombre": "Nivel 1",
+      "ejercicios": [
+        {
+          "id": "ej1",
+          "nombre": "Ejercicio 1",
+          "descripcion": "Introducción a las figuras básicas. Redonda, silencio de blanca y blanca. Enfocate en mantener el pulso parejo.",
+          "comentario": "",
+          "viewBox": "8500 0 0.1 3550",
+          "viewBoxMobile": "8500 0 2400 3550"
+        },
+        {
+          "id": "ej2",
+          "nombre": "Ejercicio 2",
+          "descripcion": "Placeholder — reemplazar con descripción real.",
+          "comentario": "",
+          "viewBox": "2200 0 15000 3550",
+          "viewBoxMobile": "2200 0 2400 3550"
+        },
+        {
+          "id": "ej3",
+          "nombre": "Ejercicio 3",
+          "descripcion": "Placeholder — reemplazar con descripción real.",
+          "comentario": "",
+          "viewBox": "2500 0 15000 3550",
+          "viewBoxMobile": "2500 0 2400 3550"
+        }
+      ]
+    },
+    {
+      "nivel": 2,
+      "nombre": "Nivel 2",
+      "ejercicios": [
+        {
+          "id": "ej4",
+          "nombre": "Ejercicio 4",
+          "descripcion": "Placeholder — reemplazar con descripción real.",
+          "comentario": "",
+          "viewBox": "1500 0 23000 3550",
+          "viewBoxMobile": "1500 0 2400 3550"
+        },
+        {
+          "id": "ej5",
+          "nombre": "Ejercicio 5",
+          "descripcion": "Placeholder — reemplazar con descripción real.",
+          "comentario": "",
+          "viewBox": "1500 0 23000 3550",
+          "viewBoxMobile": "1500 0 2400 3550"
+        },
+        {
+          "id": "ej6",
+          "nombre": "Ejercicio 6",
+          "descripcion": "Placeholder — reemplazar con descripción real.",
+          "comentario": "",
+          "viewBox": "1500 0 23000 3550",
+          "viewBoxMobile": "1500 0 2400 3550"
+        }
+      ]
+    },
+    {
+      "nivel": 3,
+      "nombre": "Nivel 3",
+      "ejercicios": [
+        {
+          "id": "ej7",
+          "nombre": "Ejercicio 7",
+          "descripcion": "Placeholder — nueva célula rítmica. Revisá la sección Figuras Rítmicas antes de continuar.",
+          "comentario": "",
+          "viewBox": "1500 0 23000 3550",
+          "viewBoxMobile": "1500 0 2400 3550"
+        },
+        {
+          "id": "ej8",
+          "nombre": "Ejercicio 8",
+          "descripcion": "Placeholder — reemplazar con descripción real.",
+          "comentario": "",
+          "viewBox": "1500 0 23000 3550",
+          "viewBoxMobile": "1500 0 2400 3550"
+        },
+        {
+          "id": "ej9",
+          "nombre": "prueba",
+          "descripcion": "Placeholder — reemplazar con descripción real.",
+          "comentario": "",
+          "viewBox": "0 1500 28000 4600",
+          "viewBoxMobile": "0 0 2400 3550"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+# ==============================
+# ARCHIVOS PESADOS — van a nube
+# ==============================
+
+# Videos de ejercicios y figuras
+static/grooves/*.mp4
+static/video/*.mp4
+
+# Modelos 3D y HDR
+static/model/*.glb
+static/model/*.hdr
+
+# PDFs de material
+static/material/**/*.pdf
+static/material/*.pdf
+
+# ==============================
+# PYTHON
+# ==============================
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# ==============================
+# SISTEMA
+# ==============================
+.DS_Store
+Thumbs.db
+
+# ==============================
+# DATOS SENSIBLES
+# ==============================
+usuarios.json
+
+# ==============================
+# VERCEL (web anterior)
+# ==============================
+.vercel/

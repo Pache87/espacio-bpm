@@ -1,0 +1,18 @@
+[
+  { "on": ["a1tgpd27"], "qstamp": 0, "beat": 0, "tempo": 96, "tstamp": 0 },
+  { "off": ["a1tgpd27"], "qstamp": 4, "beat": 0, "tstamp": 2500 },
+  { "on": ["n13jufae"], "qstamp": 6, "beat": 2, "tstamp": 3750 },
+  { "off": ["n13jufae"], "on": ["z1smafj1"], "qstamp": 8, "beat": 0, "tstamp": 5000 },
+  { "off": ["z1smafj1"], "qstamp": 9, "beat": 1, "tstamp": 5625 },
+  { "on": ["by30o4h"], "qstamp": 10, "beat": 2, "tstamp": 6250 },
+  { "off": ["by30o4h"], "on": ["d30ic9f"], "qstamp": 11, "beat": 3, "tstamp": 6875 },
+  { "off": ["d30ic9f"], "on": ["e117v5s3"], "qstamp": 11.5, "beat": 3, "tstamp": 7188 },
+  { "off": ["e117v5s3"], "on": ["r1vew9hu"], "qstamp": 12, "beat": 0, "tstamp": 7500 },
+  { "off": ["r1vew9hu"], "on": ["s1elyhgd"], "qstamp": 12.5, "beat": 0, "tstamp": 7813 },
+  { "off": ["s1elyhgd"], "on": ["t1ehar92"], "qstamp": 13, "beat": 1, "tstamp": 8125 },
+  { "off": ["t1ehar92"], "on": ["u1bvj18i"], "qstamp": 13.5, "beat": 1, "tstamp": 8438 },
+  { "off": ["u1bvj18i"], "qstamp": 14, "beat": 2, "tstamp": 8750 },
+  { "on": ["xhr35ky"], "qstamp": 15, "beat": 3, "tstamp": 9375 },
+  { "off": ["xhr35ky"], "on": ["ycx643s"], "qstamp": 15.5, "beat": 3, "tstamp": 9688 },
+  { "off": ["ycx643s"], "qstamp": 16, "beat": 0, "tstamp": 10000 }
+]

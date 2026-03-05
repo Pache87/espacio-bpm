@@ -1,0 +1,471 @@
+[
+  {
+    "on": [
+      "yk81w2o",
+      "ao1li32"
+    ],
+    "qstamp": 0,
+    "tempo": 96,
+    "tstamp": 0
+  },
+  {
+    "off": [
+      "yk81w2o",
+      "ao1li32"
+    ],
+    "on": [
+      "bklnv5q"
+    ],
+    "qstamp": 0.5,
+    "tstamp": 313
+  },
+  {
+    "off": [
+      "bklnv5q"
+    ],
+    "on": [
+      "dqhgzyj",
+      "f15d6tsm"
+    ],
+    "qstamp": 1,
+    "tstamp": 625
+  },
+  {
+    "off": [
+      "dqhgzyj",
+      "f15d6tsm"
+    ],
+    "on": [
+      "gplzc3z"
+    ],
+    "qstamp": 1.5,
+    "tstamp": 938
+  },
+  {
+    "off": [
+      "gplzc3z"
+    ],
+    "on": [
+      "i92y05i",
+      "k186n7eu"
+    ],
+    "qstamp": 2,
+    "tstamp": 1250
+  },
+  {
+    "off": [
+      "i92y05i",
+      "k186n7eu"
+    ],
+    "on": [
+      "l11995yu"
+    ],
+    "qstamp": 2.5,
+    "tstamp": 1563
+  },
+  {
+    "off": [
+      "l11995yu"
+    ],
+    "on": [
+      "n5vrze2"
+    ],
+    "qstamp": 3,
+    "tstamp": 1875
+  },
+  {
+    "off": [
+      "n5vrze2"
+    ],
+    "on": [
+      "o1j7r8m"
+    ],
+    "qstamp": 3.25,
+    "tstamp": 2031
+  },
+  {
+    "off": [
+      "o1j7r8m"
+    ],
+    "on": [
+      "puh61jk"
+    ],
+    "qstamp": 3.5,
+    "tstamp": 2188
+  },
+  {
+    "off": [
+      "puh61jk"
+    ],
+    "on": [
+      "q24eqem"
+    ],
+    "qstamp": 3.75,
+    "tstamp": 2344
+  },
+  {
+    "off": [
+      "q24eqem"
+    ],
+    "on": [
+      "dcx88z",
+      "f1pqpv7c"
+    ],
+    "qstamp": 4,
+    "tstamp": 2500
+  },
+  {
+    "off": [
+      "dcx88z",
+      "f1pqpv7c"
+    ],
+    "on": [
+      "g1p4ypci"
+    ],
+    "qstamp": 4.5,
+    "tstamp": 2813
+  },
+  {
+    "off": [
+      "g1p4ypci"
+    ],
+    "on": [
+      "i1enqgip",
+      "k1h2fe99"
+    ],
+    "qstamp": 5,
+    "tstamp": 3125
+  },
+  {
+    "off": [
+      "i1enqgip",
+      "k1h2fe99"
+    ],
+    "on": [
+      "l1a1nthx",
+      "n4ttw1t"
+    ],
+    "qstamp": 5.5,
+    "tstamp": 3438
+  },
+  {
+    "off": [
+      "l1a1nthx",
+      "n4ttw1t"
+    ],
+    "on": [
+      "p1t53s9h"
+    ],
+    "qstamp": 6,
+    "tstamp": 3750
+  },
+  {
+    "off": [
+      "p1t53s9h"
+    ],
+    "on": [
+      "q16im1vr"
+    ],
+    "qstamp": 6.25,
+    "tstamp": 3906
+  },
+  {
+    "off": [
+      "q16im1vr"
+    ],
+    "on": [
+      "r1gdtfdr"
+    ],
+    "qstamp": 6.5,
+    "tstamp": 4063
+  },
+  {
+    "off": [
+      "r1gdtfdr"
+    ],
+    "on": [
+      "sqgvdt3"
+    ],
+    "qstamp": 6.75,
+    "tstamp": 4219
+  },
+  {
+    "off": [
+      "sqgvdt3"
+    ],
+    "on": [
+      "u1piow5h"
+    ],
+    "qstamp": 7,
+    "tstamp": 4375
+  },
+  {
+    "off": [
+      "u1piow5h"
+    ],
+    "on": [
+      "v8nu3p7"
+    ],
+    "qstamp": 7.25,
+    "tstamp": 4531
+  },
+  {
+    "off": [
+      "v8nu3p7"
+    ],
+    "on": [
+      "wlwrjej"
+    ],
+    "qstamp": 7.5,
+    "tstamp": 4688
+  },
+  {
+    "off": [
+      "wlwrjej"
+    ],
+    "on": [
+      "x1buvgsf"
+    ],
+    "qstamp": 7.75,
+    "tstamp": 4844
+  },
+  {
+    "off": [
+      "x1buvgsf"
+    ],
+    "on": [
+      "k1czahwc",
+      "msqnm6"
+    ],
+    "qstamp": 8,
+    "tstamp": 5000
+  },
+  {
+    "off": [
+      "k1czahwc",
+      "msqnm6"
+    ],
+    "on": [
+      "n17kamtj"
+    ],
+    "qstamp": 8.5,
+    "tstamp": 5313
+  },
+  {
+    "off": [
+      "n17kamtj"
+    ],
+    "on": [
+      "phy6oiu",
+      "rxsofeb"
+    ],
+    "qstamp": 9,
+    "tstamp": 5625
+  },
+  {
+    "off": [
+      "phy6oiu",
+      "rxsofeb"
+    ],
+    "on": [
+      "s1jvxmjl"
+    ],
+    "qstamp": 9.5,
+    "tstamp": 5938
+  },
+  {
+    "off": [
+      "s1jvxmjl"
+    ],
+    "on": [
+      "u1ott827",
+      "wk35q1"
+    ],
+    "qstamp": 10,
+    "tstamp": 6250
+  },
+  {
+    "off": [
+      "u1ott827",
+      "wk35q1"
+    ],
+    "on": [
+      "xbjcazw"
+    ],
+    "qstamp": 10.5,
+    "tstamp": 6563
+  },
+  {
+    "off": [
+      "xbjcazw"
+    ],
+    "on": [
+      "z1sydq4c"
+    ],
+    "qstamp": 11,
+    "tstamp": 6875
+  },
+  {
+    "off": [
+      "z1sydq4c"
+    ],
+    "on": [
+      "a11w3dah"
+    ],
+    "qstamp": 11.25,
+    "tstamp": 7031
+  },
+  {
+    "off": [
+      "a11w3dah"
+    ],
+    "on": [
+      "b12rb07j"
+    ],
+    "qstamp": 11.5,
+    "tstamp": 7188
+  },
+  {
+    "off": [
+      "b12rb07j"
+    ],
+    "on": [
+      "c1l6x0b3"
+    ],
+    "qstamp": 11.75,
+    "tstamp": 7344
+  },
+  {
+    "off": [
+      "c1l6x0b3"
+    ],
+    "on": [
+      "pj3mpde",
+      "r6lskpg"
+    ],
+    "qstamp": 12,
+    "tstamp": 7500
+  },
+  {
+    "off": [
+      "pj3mpde",
+      "r6lskpg"
+    ],
+    "on": [
+      "s407kqq"
+    ],
+    "qstamp": 12.5,
+    "tstamp": 7813
+  },
+  {
+    "off": [
+      "s407kqq"
+    ],
+    "on": [
+      "u17gs45b",
+      "wvuni7x"
+    ],
+    "qstamp": 13,
+    "tstamp": 8125
+  },
+  {
+    "off": [
+      "u17gs45b",
+      "wvuni7x"
+    ],
+    "on": [
+      "x1bby694",
+      "ziadubi"
+    ],
+    "qstamp": 13.5,
+    "tstamp": 8438
+  },
+  {
+    "off": [
+      "x1bby694",
+      "ziadubi"
+    ],
+    "on": [
+      "b1y83tl4"
+    ],
+    "qstamp": 14,
+    "tstamp": 8750
+  },
+  {
+    "off": [
+      "b1y83tl4"
+    ],
+    "on": [
+      "c1vl8rty"
+    ],
+    "qstamp": 14.25,
+    "tstamp": 8906
+  },
+  {
+    "off": [
+      "c1vl8rty"
+    ],
+    "on": [
+      "d8alo95"
+    ],
+    "qstamp": 14.5,
+    "tstamp": 9063
+  },
+  {
+    "off": [
+      "d8alo95"
+    ],
+    "on": [
+      "eu84poq"
+    ],
+    "qstamp": 14.75,
+    "tstamp": 9219
+  },
+  {
+    "off": [
+      "eu84poq"
+    ],
+    "on": [
+      "gydrevm"
+    ],
+    "qstamp": 15,
+    "tstamp": 9375
+  },
+  {
+    "off": [
+      "gydrevm"
+    ],
+    "on": [
+      "h10w8cjd"
+    ],
+    "qstamp": 15.25,
+    "tstamp": 9531
+  },
+  {
+    "off": [
+      "h10w8cjd"
+    ],
+    "on": [
+      "it6olgg"
+    ],
+    "qstamp": 15.5,
+    "tstamp": 9688
+  },
+  {
+    "off": [
+      "it6olgg"
+    ],
+    "on": [
+      "kvxhb0l"
+    ],
+    "qstamp": 15.75,
+    "tstamp": 9844
+  },
+  {
+    "off": [
+      "kvxhb0l"
+    ],
+    "qstamp": 16,
+    "tstamp": 10000
+  }
+]

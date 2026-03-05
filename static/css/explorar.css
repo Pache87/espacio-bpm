@@ -1,0 +1,1217 @@
+/* ======================================================
+   ESPACIO BPM — explorar.css
+   Visor 3D · Figuras Rítmicas · Programa de Estudio
+====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ======================================================
+   VARIABLES
+====================================================== */
+
+:root {
+  --gold:      #d4af37;
+  --gold-dim:  #8a7020;
+  --gold-glow: rgba(212,175,55,0.12);
+  --bg:        #0a0a0a;
+  --surface:   #111111;
+  --surface2:  #161616;
+  --border:    #1e1e1e;
+  --text:      #e8e8e8;
+  --muted:     #555;
+  --sidebar-w: 200px;
+  --header-h:  52px;
+}
+
+/* ======================================================
+   RESET
+====================================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow: hidden;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px 0 0;
+  background: rgba(10,10,10,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-logo-area {
+  display: flex;
+  align-items: center;
+  width: var(--sidebar-w);
+  padding: 0 24px;
+  border-right: 1px solid var(--border);
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.header-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  padding: 5px 16px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.back-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ======================================================
+   LAYOUT
+====================================================== */
+
+.layout {
+  display: flex;
+  height: 100vh;
+  padding-top: var(--header-h);
+}
+
+/* ======================================================
+   SIDEBAR
+====================================================== */
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  height: 100%;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  overflow-y: auto;
+}
+
+.sidebar-section-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.4em;
+  color: var(--muted);
+  padding: 0 20px 10px;
+  opacity: 0.5;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 20px;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+.nav-item:hover { background: rgba(255,255,255,0.03); border-left-color: var(--border); }
+.nav-item.active { background: var(--gold-glow); border-left-color: var(--gold); }
+
+.nav-icon {
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.nav-item.active .nav-icon { border-color: var(--gold-dim); background: rgba(212,175,55,0.08); }
+.nav-icon svg { opacity: 0.5; transition: opacity 0.2s; }
+.nav-item.active .nav-icon svg,
+.nav-item:hover .nav-icon svg { opacity: 1; }
+
+.nav-text { display: flex; flex-direction: column; gap: 1px; }
+
+.nav-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  transition: color 0.2s;
+  line-height: 1;
+}
+.nav-item:hover .nav-label { color: var(--text); }
+.nav-item.active .nav-label { color: var(--gold); }
+
+.nav-sub {
+  font-size: 0.6rem;
+  color: #333;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.nav-item:hover .nav-sub { color: #444; }
+.nav-item.active .nav-sub { color: var(--gold-dim); }
+
+/* ======================================================
+   MAIN + PANELS
+====================================================== */
+
+.main {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Panel material scrollea dentro del main */
+#panel-material {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Cuando está activo, permite scroll interno */
+#panel-material.active {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+}
+
+.panel {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.panel.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+#panel-visor    { display: flex; flex-direction: column; overflow: hidden; }
+#panel-programa { overflow: hidden; position: relative; height: 100%; }
+
+/* ======================================================
+   VISOR 3D
+====================================================== */
+
+.viewer-header {
+  padding: 20px 28px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.viewer-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px var(--gold);
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--gold); }
+  50%       { opacity: 0.4; box-shadow: 0 0 3px var(--gold); }
+}
+
+.viewer-dot-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+}
+
+.viewer-body {
+  flex: 1;
+  min-height: 0;
+  padding: 0 28px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+#three-container {
+  flex: 1;
+  min-height: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--border), 0 20px 60px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+/* ======================================================
+   NOTATION PANEL (overlay visor)
+====================================================== */
+
+.notation-panel {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  width: 300px;
+  max-height: calc(100% - 48px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.notation-panel::-webkit-scrollbar { display: none; }
+.notation-panel.visible { opacity: 1; transform: translateY(0); }
+
+.notation-inner {
+  background: rgba(8,8,8,0.9);
+  border: 1px solid rgba(212,175,55,0.14);
+  border-radius: 12px;
+  padding: 16px 16px 18px;
+  backdrop-filter: blur(16px);
+  pointer-events: all;
+}
+
+.notation-name {
+  display: none;
+}
+
+/* SVG partitura dentro del panel */
+#notation-svg {
+  width: 100%;
+}
+
+#notation-svg svg {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 250px;
+  display: block;
+}
+
+
+/* Botones de sonido */
+#notation-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+#notation-buttons:empty {
+  display: none;
+}
+
+.notation-play-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10,10,10,0.75);
+  border: 1px solid rgba(212,175,55,0.2);
+  color: rgba(212,175,55,0.7);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  pointer-events: all;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex: 1;
+}
+.notation-play-btn svg { flex-shrink: 0; width: 10px; height: 10px; }
+.notation-play-btn svg polygon { fill: currentColor; }
+.notation-play-btn:hover {
+  background: rgba(212,175,55,0.1);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ======================================================
+   MATERIAL DE ESTUDIO
+====================================================== */
+
+.material-inner {
+  padding: 6px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.material-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  line-height: 1;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+
+.subtabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.subtab {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  padding: 5px 16px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.subtab:hover { color: var(--text); }
+.subtab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+.subtab-panel { display: none; }
+.subtab-panel.active {
+  display: block;
+}
+.subtab-panel.active::-webkit-scrollbar { display: none; }
+
+/* ======================================================
+   TABLA DE FIGURAS
+====================================================== */
+
+.tabla-wrapper {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  flex-shrink: 0;
+  height: calc(100vh - var(--header-h) - 80px);
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabla-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.4em;
+  color: var(--gold-dim);
+  padding: 10px 24px 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+}
+.tabla-titulo::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.tabla-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Columna izquierda: árbol */
+.tabla-arbol {
+  flex: 0 0 52%;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tabla-arbol-hint {
+  position: absolute;
+  bottom: 14px;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#tabla-figuras-svg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#tabla-figuras-svg svg {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 420px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Columna derecha: info */
+.tabla-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.tabla-info::-webkit-scrollbar { display: none; }
+
+.tabla-info-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px;
+  opacity: 0.35;
+}
+.tabla-info-empty-icon {
+  width: 32px; height: 32px;
+  border: 1px solid var(--muted);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.tabla-info-empty span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  text-align: center;
+}
+
+.tabla-figura-panel {
+  display: none;
+  flex-direction: column;
+  padding: 18px 20px;
+  gap: 10px;
+  animation: fadeInPanel 0.2s ease;
+}
+.tabla-figura-panel.visible { display: flex; }
+
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateX(8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.tabla-figura-nombre {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.tabla-figura-desc {
+  font-size: 0.74rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.tabla-figura-stats { display: flex; gap: 16px; }
+
+.tabla-figura-stat { display: flex; flex-direction: column; gap: 2px; }
+
+.tabla-figura-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  color: #fff;
+  line-height: 1;
+}
+
+.tabla-figura-stat-lbl {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  color: #aaa;
+}
+
+.tabla-figura-svgs { display: flex; gap: 20px; align-items: flex-start; }
+
+.tabla-figura-svg-bloque {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.tabla-figura-svg-lbl {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.48rem;
+  letter-spacing: 0.25em;
+  color: #aaa;
+}
+
+.tabla-figura-svg-wrap {
+  width: 48px; height: 68px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 6px;
+  padding: 4px;
+}
+.tabla-figura-svg-wrap svg { width: 100%; height: 100%; }
+
+.tabla-silencio-desc {
+  font-size: 0.52rem;
+  color: #aaa;
+  line-height: 1.4;
+  text-align: center;
+  font-style: italic;
+  max-width: 90px;
+}
+
+/* Figuras clickeables */
+.fig-clickable {
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px rgba(212,175,55,0.2), 0 0 10px rgba(212,175,55,0.1);
+  transition: box-shadow 0.2s ease, opacity 0.2s ease;
+}
+.fig-clickable:hover {
+  box-shadow: 0 0 0 1px rgba(212,175,55,0.5), 0 0 16px rgba(212,175,55,0.3);
+  opacity: 0.85;
+}
+.fig-clickable.fig-active path,
+.fig-clickable.fig-active rect,
+.fig-clickable.fig-active use { fill: var(--gold) !important; }
+.fig-clickable.fig-active path[fill="none"] { stroke: var(--gold) !important; }
+
+/* Videos figuras rítmicas */
+.figuras-videos-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 24px 40px;
+  flex-shrink: 0;
+  border-top: 1px solid var(--border);
+}
+
+.figuras-video-bloque {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  max-width: 380px;
+}
+
+.figuras-video-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-dim);
+  text-align: center;
+}
+
+.figuras-video {
+  width: 100%;
+  aspect-ratio: 720 / 900;
+  object-fit: cover;
+  background: #000;
+  display: block;
+  border-radius: 8px;
+}
+
+/* ======================================================
+   PROGRAMA DE ESTUDIO — REPRODUCTOR
+====================================================== */
+
+.rp-layout {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Columna izquierda */
+.rp-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid var(--border);
+}
+
+/* Título del ejercicio */
+.rp-ej-header {
+  flex-shrink: 0;
+  padding: 12px 20px 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.rp-ej-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+}
+
+/* Descripción del ejercicio */
+.rp-desc-overlay {
+  position: relative;
+  background: rgba(10,10,10,0.92);
+  border-bottom: 1px solid var(--border);
+  border-left: 2px solid var(--gold-dim);
+  padding: 10px 40px 10px 16px;
+  flex-shrink: 0;
+}
+
+.rp-desc-text {
+  font-size: 0.75rem;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.rp-desc-close {
+  position: absolute;
+  top: 8px; right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.7rem;
+  transition: color 0.15s;
+}
+.rp-desc-close:hover { color: var(--text); }
+
+/* Partitura SVG */
+.rp-score-wrap {
+  width: 100%;
+  flex-shrink: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  overflow: hidden;
+}
+
+.rp-score-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+
+.rp-score-wrap svg path,
+.rp-score-wrap svg rect,
+.rp-score-wrap svg polygon,
+.rp-score-wrap svg polyline,
+.rp-score-wrap svg use,
+.rp-score-wrap svg ellipse {
+  fill: white !important;
+  stroke: white !important;
+}
+.rp-score-wrap svg text { fill: white !important; stroke: none !important; }
+
+/* Highlight notas activas — sobreescribe el blanco */
+.rp-score-wrap .note-active path,
+.rp-score-wrap .note-active use,
+.rp-score-wrap .note-active polygon,
+.rp-score-wrap .note-active polyline,
+.rp-score-wrap .note-active ellipse,
+.rp-score-wrap .note-active rect {
+  fill: var(--gold) !important;
+  stroke: var(--gold) !important;
+  filter: drop-shadow(0 0 8px rgba(212,175,55,0.9));
+}
+
+/* Controles reproductor */
+.rp-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.rp-btn-play {
+  background: var(--gold);
+  color: #000;
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  padding: 7px 22px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.15s;
+  min-width: 90px;
+}
+.rp-btn-play:hover    { background: var(--gold-dim); color: #fff; }
+.rp-btn-play.playing  { background: #c0392b; color: #fff; }
+.rp-btn-play:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.rp-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+.rp-bpm-display { display: flex; flex-direction: column; gap: 2px; }
+
+.rp-bpm-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+.rp-progress-wrap { flex: 1; min-width: 80px; display: flex; flex-direction: column; gap: 6px; }
+
+.rp-progress-bg {
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rp-progress-fill {
+  height: 100%;
+  background: var(--gold);
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.rp-beat-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.rp-beat-dots { display: flex; gap: 6px; }
+
+.rp-beat-dot {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--border);
+  border: 1px solid #2a2a2a;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  color: #333;
+  transition: background 0.05s, box-shadow 0.05s, color 0.05s;
+}
+.rp-beat-dot.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #000;
+  box-shadow: 0 0 8px rgba(212,175,55,0.7);
+}
+.rp-beat-dot.rp-beat-one.active {
+  background: #e05c2a;
+  border-color: #e05c2a;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(224,92,42,0.7);
+}
+
+.rp-btn-loop {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+.rp-btn-loop.active { color: var(--gold); border-color: var(--gold); }
+
+/* Lista ejercicios */
+.rp-sidebar {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 12px 0;
+  background: var(--bg);
+}
+.rp-sidebar::-webkit-scrollbar { display: none; }
+
+.rp-sidebar-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.4em;
+  color: var(--muted);
+  opacity: 0.5;
+  padding: 0 16px 10px;
+  display: block;
+}
+
+.rp-nivel { display: flex; flex-direction: column; margin-bottom: 4px; }
+
+.rp-nivel-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-dim);
+  padding: 6px 16px 5px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.ej-card {
+  padding: 8px 16px;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: all 0.18s;
+}
+.ej-card:hover  { background: rgba(255,255,255,0.04); border-left-color: var(--border); }
+.ej-card.active { background: var(--gold-glow); border-left-color: var(--gold); }
+
+.ej-nombre {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  transition: color 0.18s;
+  display: block;
+}
+.ej-card:hover  .ej-nombre { color: var(--text); }
+.ej-card.active .ej-nombre { color: var(--gold); }
+
+/* Comentario */
+.rp-comentario {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+  padding: 10px 16px;
+  border-left: 2px solid var(--gold-dim);
+  background: rgba(212,175,55,0.04);
+  border-radius: 0 6px 6px 0;
+  flex-shrink: 0;
+}
+
+/* Loading */
+.rp-loading {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Columna derecha: video */
+.rp-video-wrap {
+  flex-shrink: 0;
+  background: #000;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4/5;
+  height: 100%;
+  width: auto;
+}
+.rp-video-wrap video {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay precuenta */
+#rp-countdown-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  z-index: 10;
+}
+#rp-countdown-overlay.visible { display: flex; }
+
+.rp-cd-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: scale(0.7);
+  text-shadow: 0 0 40px rgba(212,175,55,0.5);
+}
+.rp-cd-number.pop { animation: rp-pop 0.55s ease forwards; }
+
+@keyframes rp-pop {
+  0%   { opacity: 0; transform: scale(0.6); }
+  20%  { opacity: 1; transform: scale(1.15); }
+  40%  { transform: scale(0.95); }
+  60%  { transform: scale(1.05); }
+  80%  { transform: scale(1); opacity: 1; }
+  100% { opacity: 0.3; transform: scale(1); }
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+/* Select mobile: oculto en desktop, visible solo en mobile */
+.rp-select-mobile-wrap { display: none; }
+
+@media (max-width: 768px) and (orientation: portrait) {
+
+  /* ── HEADER ───────────────────────────────────────── */
+  .header { padding: 0 16px; }
+  .section-title { display: none; }
+  .header-logo-area {
+    width: auto;
+    border-right: none;
+    padding: 0;
+  }
+
+  /* ── LAYOUT — sidebar va abajo ────────────────────── */
+  .layout {
+    flex-direction: column;
+    padding-top: var(--header-h);
+    padding-bottom: 56px;
+  }
+
+  /* ── SIDEBAR como tab bar fija abajo ──────────────── */
+  .sidebar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    width: 100%;
+    height: 56px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+    border-right: none;
+    border-top: 1px solid var(--border);
+    z-index: 100;
+  }
+  .sidebar-section-label { display: none; }
+  .nav-item {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 4px;
+    border-left: none;
+    border-top: 2px solid transparent;
+    gap: 4px;
+  }
+  .nav-item.active { border-left-color: transparent; border-top-color: var(--gold); }
+  .nav-text { display: none; }
+  .nav-icon { width: 24px; height: 24px; }
+
+  /* ── MAIN ocupa todo ──────────────────────────────── */
+  .main { width: 100%; height: 100%; }
+
+  /* ── VISOR ────────────────────────────────────────── */
+  .viewer-body  { padding: 0 12px 12px; }
+  .viewer-header { padding: 12px 16px 8px; }
+  .notation-panel { width: 160px; bottom: 12px; right: 12px; }
+  .notation-inner { padding: 10px 10px 12px; }
+
+  /* ── ÁRBOL FIGURAS ────────────────────────────────── */
+  .tabla-wrapper { height: auto; min-height: unset; }
+  .tabla-body { flex-direction: column; }
+  .tabla-arbol {
+    flex: 0 0 auto;
+    height: 72vw;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+  }
+  #tabla-figuras-svg {
+    width: 120%; height: 120%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #tabla-figuras-svg svg {
+    width: auto; height: 120%;
+    max-width: 100%; display: block;
+    margin: 0 auto; transform: translateX(10%);
+  }
+  .tabla-figura-panel    { padding: 9px 11px; gap: 5px; }
+  .tabla-figura-nombre   { font-size: 0.85rem; }
+  .tabla-figura-desc     { font-size: 0.58rem; line-height: 1.4; }
+  .tabla-figura-stats    { gap: 9px; }
+  .tabla-figura-stat-num { font-size: 1rem; }
+  .tabla-figura-stat-lbl { font-size: 0.4rem; }
+  .tabla-figura-svgs     { gap: 11px; }
+  .tabla-figura-svg-wrap { width: 32px; height: 47px; }
+  .tabla-silencio-desc   { font-size: 0.4rem; max-width: 63px; }
+  .figuras-videos-row    { flex-direction: column; align-items: center; padding: 16px 0 40px; }
+  .figuras-video-bloque  { max-width: 100%; width: 100%; }
+
+  /* ══════════════════════════════════════════════════
+     PROGRAMA DE ESTUDIO — MOBILE
+
+     Layout (todo visible, sin scroll):
+     ┌──────────────────────────────────┐
+     │  [select ejercicio  ▾]           │
+     ├──────────────────────────────────┤
+     │  título + desc                   │
+     ├──────────────────────────────────┤
+     │  SVG partitura  (80px)           │
+     ├──────────────────────────────────┤
+     │  controles BPM/beats/loop        │
+     ├──────────────────────────────────┤
+     │  VIDEO full-width (resto)        │
+     └──────────────────────────────────┘
+  ══════════════════════════════════════════════════ */
+
+  #panel-programa { overflow: hidden; }
+
+  .rp-layout {
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* select mobile: visible solo en mobile */
+  .rp-select-mobile-wrap {
+    display: block;
+    flex-shrink: 0;
+    padding: 3px 12px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .rp-select-mobile {
+    width: 100%;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    padding: 3px 8px;
+    cursor: pointer;
+    appearance: auto;
+  }
+  /* los optgroup (niveles) los colorea el sistema nativo */
+
+  .rp-left {
+    flex: none;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-right: none;
+  }
+
+  /* título */
+  .rp-ej-header {
+    padding: 6px 12px 4px;
+    flex-shrink: 0;
+  }
+  .rp-ej-titulo { font-size: 0.6rem; letter-spacing: 0.15em; }
+
+  /* descripción */
+  .rp-desc-overlay {
+    padding: 5px 28px 5px 12px;
+    flex-shrink: 0;
+  }
+  .rp-desc-text { font-size: 0.62rem; line-height: 1.4; }
+
+  /* partitura: altura fija que muestra el SVG completo */
+  .rp-score-wrap {
+    height: 80px;
+    flex-shrink: 0;
+  }
+
+  /* controles en una sola fila */
+  .rp-controls {
+    padding: 4px 10px;
+    gap: 8px;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+  .rp-btn-play      { font-size: 0.65rem; padding: 4px 10px; min-width: 54px; }
+  .rp-bpm-val       { font-size: 0.8rem; }
+  .rp-label         { font-size: 0.38rem; }
+  .rp-beat-dot      { width: 14px; height: 14px; font-size: 0.46rem; }
+  .rp-beat-dots     { gap: 3px; }
+  .rp-btn-loop      { font-size: 0.5rem; padding: 4px 8px; }
+  .rp-progress-wrap { min-width: 30px; }
+
+  /* lista: OCULTA en mobile (reemplazada por el select) */
+  .rp-sidebar       { display: none; }
+  .rp-comentario    { display: none; }
+
+  /* video: ocupa todo el espacio que queda */
+  .rp-video-wrap {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    aspect-ratio: unset;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+  }
+  .rp-video-wrap video {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 100%;
+  }
+
+  /* countdown */
+  #rp-countdown-overlay { border-radius: 0; }
+  .rp-cd-number { font-size: 4rem; }
+}

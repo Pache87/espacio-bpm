@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área del Alumno | ESPACIO BPM</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/alumno.css') }}">
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="ESPACIO BPM Logo">
+    <ul>
+      <li><a href="/">VOLVER AL SITIO</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="alumno-section">
+  <div class="alumno-wrap">
+    <div id="panel-alumno-container"></div>
+    <div class="alumno-logout">
+      <button id="logout-btn" class="login-btn">Cerrar sesión</button>
+    </div>
+  </div>
+</section>
+
+<script src="{{ url_for('static', filename='js/alumno.js') }}"></script>
+
+</body>
+</html>
