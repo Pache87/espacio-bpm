@@ -1,0 +1,316 @@
+{
+  "alumnos": [
+    {
+      "clases": [
+        {
+          "fecha": "2026-02-10",
+          "estado": "pagada"
+        },
+        {
+          "fecha": "2026-02-11",
+          "estado": "pagada"
+        },
+        {
+          "fecha": "2026-02-17",
+          "estado": "pendiente"
+        },
+        {
+          "fecha": "2026-03-04",
+          "estado": "pagada"
+        },
+        {
+          "fecha": "2026-03-11",
+          "estado": "pagada"
+        },
+        {
+          "fecha": "2026-03-18",
+          "estado": "pagada"
+        },
+        {
+          "fecha": "2026-03-25",
+          "estado": "pagada"
+        }
+      ],
+      "contenidos_asignados": [
+        "cs_1",
+        "cs3_76"
+      ],
+      "notas": "Trabajar coordinación manos-pie.",
+      "password": "1234",
+      "usuario": "juan"
+    },
+    {
+      "clases": [
+        {
+          "estado": "pagada",
+          "fecha": "2026-03-11"
+        },
+        {
+          "estado": "pagada",
+          "fecha": "2026-03-18"
+        }
+      ],
+      "contenidos_asignados": [
+        "groove_dos_voces",
+        "grupos_de_3"
+      ],
+      "notas": "estudia !! la cocha de tu madre!!",
+      "password": "pedro",
+      "usuario": "pedro"
+    }
+  ],
+  "contenidos": [
+    {
+      "id": "acentos",
+      "ruta": "material/acentos.pdf",
+      "tipo": "pdf",
+      "titulo": "Acentos"
+    },
+    {
+      "id": "figuras_silencios",
+      "ruta": "material/Figuras y silencios.pdf",
+      "tipo": "pdf",
+      "titulo": "Figuras y silencios"
+    },
+    {
+      "id": "groove_dos_voces",
+      "ruta": "material/Groove a dos voces.pdf",
+      "tipo": "pdf",
+      "titulo": "Groove a dos voces"
+    },
+    {
+      "id": "grooves_2x4",
+      "ruta": "material/Grooves2x4.pdf",
+      "tipo": "pdf",
+      "titulo": "Grooves 2x4"
+    },
+    {
+      "id": "grupos_de_3",
+      "ruta": "material/Grupos de 3.pdf",
+      "tipo": "pdf",
+      "titulo": "Grupos de 3"
+    },
+    {
+      "id": "objetivos",
+      "ruta": "material/Objetivos.pdf",
+      "tipo": "pdf",
+      "titulo": "Objetivos"
+    },
+    {
+      "id": "objetivos_2",
+      "ruta": "material/Objetivos2.pdf",
+      "tipo": "pdf",
+      "titulo": "Objetivos 2"
+    },
+    {
+      "id": "rudimentos",
+      "ruta": "material/Rudimentos.pdf",
+      "tipo": "pdf",
+      "titulo": "Rudimentos"
+    },
+    {
+      "id": "cs_1",
+      "ruta": "material/cs/comb stu 1.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 1"
+    },
+    {
+      "id": "cs_2",
+      "ruta": "material/cs/comb stu 2.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 2"
+    },
+    {
+      "id": "cs_3",
+      "ruta": "material/cs/comb stu 3.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 3"
+    },
+    {
+      "id": "cs_3_acentos",
+      "ruta": "material/cs/comb stu 3 Acentos.pdf",
+      "tipo": "pdf",
+      "titulo": "CS 3 Acentos"
+    },
+    {
+      "id": "cs_3_acentos_tremolos",
+      "ruta": "material/cs/comb stu 3 Acentos + Tremolos.pdf",
+      "tipo": "pdf",
+      "titulo": "CS 3 Acentos + Tremolos"
+    },
+    {
+      "id": "cs_3_bombo_ostinato",
+      "ruta": "material/cs/comb stu 3 en bombo + ostinato.pdf",
+      "tipo": "pdf",
+      "titulo": "CS 3 Bombo + Ostinato"
+    },
+    {
+      "id": "cs_4",
+      "ruta": "material/cs/comb stu 4.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 4"
+    },
+    {
+      "id": "cs_5",
+      "ruta": "material/cs/comb stu 5.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 5"
+    },
+    {
+      "id": "cs_6",
+      "ruta": "material/cs/comb stu 6.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 6"
+    },
+    {
+      "id": "cs_7",
+      "ruta": "material/cs/comb stu 7.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 7"
+    },
+    {
+      "id": "cs_8",
+      "ruta": "material/cs/comb stu 8.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 8"
+    },
+    {
+      "id": "cs_9",
+      "ruta": "material/cs/comb stu 9.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 9"
+    },
+    {
+      "id": "cs_10",
+      "ruta": "material/cs/comb stu 10.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 10"
+    },
+    {
+      "id": "cs_11",
+      "ruta": "material/cs/comb stu 11.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 11"
+    },
+    {
+      "id": "cs_12",
+      "ruta": "material/cs/comb stu 12.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 12"
+    },
+    {
+      "id": "cs_13",
+      "ruta": "material/cs/comb stu 13.pdf",
+      "tipo": "pdf",
+      "titulo": "Combination Study 13"
+    },
+    {
+      "id": "cs3_76",
+      "ruta": "material/cs audios/combination study 3 (76).mp3",
+      "tipo": "audio",
+      "titulo": "CS 3 - 76 BPM"
+    },
+    {
+      "id": "cs3_90",
+      "ruta": "material/cs audios/combination study 3 (90).mp3",
+      "tipo": "audio",
+      "titulo": "CS 3 - 90 BPM"
+    },
+    {
+      "id": "cs3_120",
+      "ruta": "material/cs audios/combination study 3 (120).mp3",
+      "tipo": "audio",
+      "titulo": "CS 3 - 120 BPM"
+    },
+    {
+      "id": "cs4_76",
+      "ruta": "material/cs audios/combination study 4 (76).mp3",
+      "tipo": "audio",
+      "titulo": "CS 4 - 76 BPM"
+    },
+    {
+      "id": "cs4_100",
+      "ruta": "material/cs audios/combination study 4 (100).mp3",
+      "tipo": "audio",
+      "titulo": "CS 4 - 100 BPM"
+    },
+    {
+      "id": "cs5_70",
+      "ruta": "material/cs audios/combination study 5 (70).mp3",
+      "tipo": "audio",
+      "titulo": "CS 5 - 70 BPM"
+    },
+    {
+      "id": "cs5_90",
+      "ruta": "material/cs audios/combination study 5 (90).mp3",
+      "tipo": "audio",
+      "titulo": "CS 5 - 90 BPM"
+    },
+    {
+      "id": "cs6_76",
+      "ruta": "material/cs audios/Combination study 6 (76).mp3",
+      "tipo": "audio",
+      "titulo": "CS 6 - 76 BPM"
+    },
+    {
+      "id": "cs6_85",
+      "ruta": "material/cs audios/Combination study 6 (85).mp3",
+      "tipo": "audio",
+      "titulo": "CS 6 - 85 BPM"
+    },
+    {
+      "id": "cs6_110",
+      "ruta": "material/cs audios/Combination study 6 (110).mp3",
+      "tipo": "audio",
+      "titulo": "CS 6 - 110 BPM"
+    },
+    {
+      "id": "fatback_1",
+      "ruta": "material/fatback/Fat back Excercise1.pdf",
+      "tipo": "pdf",
+      "titulo": "Fat Back Exercise 1"
+    },
+    {
+      "id": "fatback_2",
+      "ruta": "material/fatback/Fat back Excercise2.pdf",
+      "tipo": "pdf",
+      "titulo": "Fat Back Exercise 2"
+    },
+    {
+      "id": "fatback_3",
+      "ruta": "material/fatback/Fat back Excercise3.pdf",
+      "tipo": "pdf",
+      "titulo": "Fat Back Exercise 3"
+    },
+    {
+      "id": "fatback_4",
+      "ruta": "material/fatback/Fat back Excercise4.pdf",
+      "tipo": "pdf",
+      "titulo": "Fat Back Exercise 4"
+    },
+    {
+      "id": "rock_corcheas",
+      "ruta": "material/groovesbasicos/Ejercicios de Rock corcheas.pdf",
+      "tipo": "pdf",
+      "titulo": "Rock Corcheas"
+    },
+    {
+      "id": "groove_12_8",
+      "ruta": "material/groovesbasicos/Groove 12.8.pdf",
+      "tipo": "pdf",
+      "titulo": "Groove 12.8"
+    },
+    {
+      "id": "grooves_basicos_st5",
+      "ruta": "material/groovesbasicos/Grooves Basicos COMB ST5.pdf",
+      "tipo": "pdf",
+      "titulo": "Grooves Básicos COMB ST5"
+    },
+    {
+      "id": "rock_negras",
+      "ruta": "material/groovesbasicos/Rock en Negras.pdf",
+      "tipo": "pdf",
+      "titulo": "Rock en Negras"
+    }
+  ]
+}
