@@ -156,7 +156,7 @@ function attachMaterialEvents() {
 
       empty.style.display  = "none";
       iframe.style.display = "block";
-      iframe.src = `/static/${encodeURIComponent(ruta).replace(/%2F/g, "/")}`;
+      iframe.src = `/static/${encodeURIComponent(ruta).replace(/%2F/g, "/")}#toolbar=0&view=FitH`;
     });
   });
 }
