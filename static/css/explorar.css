@@ -1133,8 +1133,6 @@ html, body {
     overflow: visible;
   }
 
-  }
-
   .rp-select-mobile {
     width: 100%;
     background: var(--surface);
@@ -1278,4 +1276,6 @@ html, body {
   }
   .rp-custom-select-option:hover { background: var(--gold-glow); color: var(--text); }
   .rp-custom-select-option.active { color: var(--gold); }
+
+}  
 
