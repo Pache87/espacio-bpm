@@ -2,21 +2,21 @@
   "niveles": [
     {
       "nivel": 1,
-      "nombre": "Nivel 1",
+      "nombre": "Modulo 1",
       "ejercicios": [
         {
           "id": "ej1",
-          "nombre": "Ejercicio 1",
-          "descripcion": "Introducción a las figuras básicas. Redonda, silencio de blanca y blanca. Enfocate en mantener el pulso parejo.",
+          "nombre": "Iniciación en Tambor",
+          "descripcion":"Fundamentos Rítmicos: Control de Figuras y Silencios en 4/4. Introducción a las figuras básicas: Redonda, blanca, negra y corcheas.",
           "comentario": "",
           "viewBox": "8500 0 0.1 3550",
           "viewBoxMobile": "45 0 700 160"
         },
         {
           "id": "ej2",
-          "nombre": "orquestando",
-          "descripcion": "primera orquestacion basica",
-          "comentario": "",
+          "nombre": "Orquestando",
+          "descripcion": "Primera orquestación básica en set. Coordinación de bombo y tambor sobre una base constante de hi-hat corcheas.",
+          "comentario": "Mantené el hi-hat estable mientras alternás los golpes de bombo y caja.",
           "viewBox": "800 0 18000 3550",
           "viewBoxMobile": "30 0 550 160"
         },
