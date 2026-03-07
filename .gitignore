@@ -3,12 +3,8 @@
 # ==============================
 
 # Videos de ejercicios y figuras
-static/grooves/*.mp4
-static/video/*.mp4
 
 # Modelos 3D y HDR
-static/model/*.glb
-static/model/*.hdr
 
 # PDFs de material
 static/material/**/*.pdf

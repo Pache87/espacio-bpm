@@ -30,7 +30,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
-  height: 100svh;;
+  height: 100svh;
   background: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
@@ -948,14 +948,13 @@ html, body {
 
 /* Columna derecha: video */
 .rp-video-wrap {
-  flex: 1;
-  min-height: 0;
-  width: 100%;
-  aspect-ratio: unset;
-  position: relative;
+  flex-shrink: 0;
+  background: #000;
   overflow: hidden;
-  border-top: 1px solid var(--border);
-  margin-bottom: 56px;
+  position: relative;
+  aspect-ratio: 4/5;
+  height: 100%;
+  width: auto;
 }
 .rp-video-wrap video {
   position: absolute;
@@ -1122,7 +1121,6 @@ html, body {
   }
 
   /* select mobile: visible solo en mobile */
-  /* select mobile: visible solo en mobile */
   .rp-select-mobile-wrap {
     display: block;
     flex-shrink: 0;
@@ -1131,54 +1129,18 @@ html, body {
     background: var(--bg);
   }
 
-  .rp-custom-select {
-    position: relative;
+  .rp-select-mobile {
     width: 100%;
-  }
-  .rp-custom-select-trigger {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background: var(--surface);
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: 3px;
     font-family: 'DM Sans', sans-serif;
     font-size: 0.7rem;
-    padding: 5px 10px;
+    font-weight: 400;
+    padding: 3px 8px;
     cursor: pointer;
-  }
-  .rp-custom-select-arrow { font-size: 0.5rem; color: var(--gold); }
-  .rp-custom-select-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-top: none;
-    z-index: 300;
-    max-height: 300px;
-    overflow-y: auto;
-  }
-  .rp-custom-select-dropdown.open { display: block; }
-  .rp-custom-select-nivel {
-    padding: 6px 10px 3px;
-    font-size: 0.55rem;
-    letter-spacing: 0.15em;
-    color: var(--muted);
-    font-family: 'Bebas Neue', sans-serif;
-  }
-  .rp-custom-select-option {
-    padding: 7px 14px;
-    font-size: 0.7rem;
-    cursor: pointer;
-    color: var(--text);
-  }
-  .rp-custom-select-option:hover,
-  .rp-custom-select-option.active {
-    background: var(--gold-glow);
-    color: var(--gold);
+    appearance: auto;
   }
   /* los optgroup (niveles) los colorea el sistema nativo */
 

@@ -272,6 +272,63 @@ section h2::after {
    CLASES — #clases
 ====================================================== */
 
+/* ---- EXPLORAR CTA ---- */
+.explorar-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.explorar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s;
+}
+
+.explorar-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: 0;
+}
+
+.explorar-btn:hover::before { transform: scaleX(1); }
+.explorar-btn:hover { color: #0a0a0a; }
+
+.explorar-btn-label,
+.explorar-btn-arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.explorar-btn-arrow {
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
+.explorar-btn:hover .explorar-btn-arrow { transform: translateX(4px); }
+
+.explorar-sub {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
 #clases {
   background: var(--bg2);
 }
@@ -969,7 +1026,17 @@ section h2::after {
     padding: 18px;
   }
 
+  .explorar-btn {
+    font-size: 0.85rem;
+    padding: 12px 20px;
+  }
+  .explorar-sub {
+    font-size: 0.65rem;
+  }
+
 }
+
+
 
 @media (max-width: 480px) {
 
