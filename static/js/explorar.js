@@ -46,19 +46,19 @@ const PART_NAMES = {
 
 const PART_SOUNDS = {
   hh: [
-    { label: "HI-HAT",     src: "/static/audio/hh_cerrado.mp3" },
-    { label: "HH ABIERTO", src: "/static/audio/hh_abierto.mp3" },
-    { label: "HH PISADO",  src: "/static/audio/hh_pisado.mp3"  },
+    { label: "HI-HAT",     src: "/static/audio/hh_cerrado.wav" },
+    { label: "HH ABIERTO", src: "/static/audio/hh_abierto.wav" },
+    { label: "HH PISADO",  src: "/static/audio/hh_pisado.wav"  },
   ],
   ride: [
-    { label: "RIDE",    src: "/static/audio/ride.mp3"         },
-    { label: "CAMPANA", src: "/static/audio/ride_campana.mp3" },
+    { label: "RIDE",    src: "/static/audio/ride.wav"         },
+    { label: "CAMPANA", src: "/static/audio/ride_campana.wav" },
   ],
-  bombo:   [{ label: "BOMBO",   src: "/static/audio/bombo.mp3"   }],
-  chancha: [{ label: "CHANCHA", src: "/static/audio/chancha.mp3" }],
-  tambor:  [{ label: "TAMBOR",  src: "/static/audio/tambor.mp3"  }],
-  tom:     [{ label: "TOM",     src: "/static/audio/tom.mp3"     }],
-  crash:   [{ label: "CRASH",   src: "/static/audio/crash.mp3"   }],
+  bombo:   [{ label: "BOMBO",   src: "/static/audio/bombo.wav"   }],
+  chancha: [{ label: "CHANCHA", src: "/static/audio/chancha.wav" }],
+  tambor:  [{ label: "TAMBOR",  src: "/static/audio/tambor.wav"  }],
+  tom:     [{ label: "TOM",     src: "/static/audio/tom.wav"     }],
+  crash:   [{ label: "CRASH",   src: "/static/audio/crash.wav"   }],
 };
 
 const audioCache = {};
