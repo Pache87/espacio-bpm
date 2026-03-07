@@ -15,16 +15,16 @@
         {
           "id": "ej2",
           "nombre": "Orquestando",
-          "descripcion": "Primera orquestación básica en set. Coordinación de bombo y tambor sobre una base constante de hi-hat corcheas.",
+          "descripcion": "Primera orquestación básica en set. Coordinación de bombo y tambor sobre una base constante de hi-hat en negras y corcheas.",
           "comentario": "Mantené el hi-hat estable mientras alternás los golpes de bombo y caja.",
           "viewBox": "800 0 18000 3550",
           "viewBoxMobile": "30 0 550 160"
         },
         {
           "id": "ej3",
-          "nombre": "probando",
-          "descripcion": "Placeholder — reemplazar con descripción real.",
-          "comentario": "",
+          "nombre": "Células de Semicorchea",
+          "descripcion": "Agregamos grupos de semicorcheas. Control de la subdivisión.",
+          "comentario": "Cuidá que el golpe de las semicorcheas sea parejo en volumen y tiempo respecto a las negras.",
           "viewBox": "1500 0 18000 3550",
           "viewBoxMobile": "25 0 510 160"
         }
@@ -32,29 +32,29 @@
     },
     {
       "nivel": 2,
-      "nombre": "Nivel 2",
+      "nombre": "Modulo 2",
       "ejercicios": [
         {
           "id": "ej4",
-          "nombre": "probando a ver que onda",
-          "descripcion": "Placeholder — reemplazar con descripción real.",
-          "comentario": "",
+          "nombre": "Groove y Semicorcheas",
+          "descripcion": "Orquestación de semicorcheas en el hi-hat aplicada a un groove básico. Coordinación de bombo y tambor con subdivisión constante.",
+          "comentario": "Mantené el flujo de las semicorcheas parejo mientras el bombo y el tambor marcan la estructura del ritmo.",
           "viewBox": "1500 0 23000 3550",
           "viewBoxMobile": "500 0 8500 3550"
         },
         {
           "id": "ej5",
-          "nombre": "Ejercicio 5",
-          "descripcion": "Placeholder — reemplazar con descripción real.",
-          "comentario": "",
+          "nombre": "Bombos en 2da y 4ta semi",
+          "descripcion": "Groove de semicorcheas con desplazamientos de bombo. Bombos en la segunda y cuarta semicorchea.",
+          "comentario": "Fijate en la independencia del bombo; evitá que los golpes fuera de tiempo afecten la estabilidad del hi-hat.",
           "viewBox": "1500 0 23000 3550",
           "viewBoxMobile": "500 0 8500 3550"
         },
         {
           "id": "ej6",
-          "nombre": "Ejercicio 6",
-          "descripcion": "Placeholder — reemplazar con descripción real.",
-          "comentario": "",
+          "nombre": "Fills y Orquestación",
+          "descripcion": "Combinación de subdivisiones: corcheas para el groove y semicorcheas para los fills. Orquestación de pasajes entre tambor y toms.",
+          "comentario": "Atención al cambio de velocidad mental; el groove en corcheas y pasaremos a semicorcheas para los fills.",
           "viewBox": "1500 0 23000 3550",
           "viewBoxMobile": "500 0 8500 3550"
         }
@@ -62,29 +62,29 @@
     },
     {
       "nivel": 3,
-      "nombre": "Nivel 3",
+      "nombre": "Modulo 3",
       "ejercicios": [
         {
           "id": "ej7",
-          "nombre": "Ejercicio 7",
-          "descripcion": "Placeholder — nueva célula rítmica. Revisá la sección Figuras Rítmicas antes de continuar.",
-          "comentario": "",
+          "nombre": "Combinación de Células",
+          "descripcion": "Volvamos al tambor y veamos estas dos nuevas células rítmicas.",
+          "comentario": "recordá que estas dos células esta en la parte de figuras ritmas junto con el árbol",
           "viewBox": "1500 0 23000 3550",
           "viewBoxMobile": "500 0 8500 3550"
         },
         {
           "id": "ej8",
-          "nombre": "Ejercicio 8",
-          "descripcion": "Placeholder — reemplazar con descripción real.",
-          "comentario": "",
+          "nombre": "Acentos y Ghost Notes",
+          "descripcion": "Orquestación de las nuevas células. Integración de acentos > y notas fantasmas ( ) para darle dinámica al groove.",
+          "comentario": "Buscá el contraste entre el acento > y la ghost note ( ) sea apenas un susurro rítmico.",
           "viewBox": "1500 0 23000 3550",
           "viewBoxMobile": "500 0 8500 3550"
         },
         {
           "id": "ej9",
-          "nombre": "prueba",
-          "descripcion": "Placeholder — reemplazar con descripción real.",
-          "comentario": "",
+          "nombre": "Integración y Aperturas",
+          "descripcion": "Combinación final de conceptos. Incorporación de aperturas de Hi-hat 'o' sobre un groove con acentos > y ghost notes ( ).",
+          "comentario": " Es el momento de aplicar todo el control dinámico y la subdivisión de los niveles anteriores.",
           "viewBox": "0 1500 28000 4600",
           "viewBoxMobile": "0 0 2400 3550"
         }
