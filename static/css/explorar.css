@@ -948,13 +948,14 @@ html, body {
 
 /* Columna derecha: video */
 .rp-video-wrap {
-  flex-shrink: 0;
-  background: #000;
-  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  aspect-ratio: unset;
   position: relative;
-  aspect-ratio: 4/5;
-  height: 100%;
-  width: auto;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  margin-bottom: 56px;
 }
 .rp-video-wrap video {
   position: absolute;
