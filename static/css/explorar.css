@@ -30,7 +30,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
-  height: 100svh;
+  height: 100%;
   background: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
@@ -743,7 +743,7 @@ html, body {
 
 .rp-score-wrap svg {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
   overflow: hidden;
 }
@@ -1054,7 +1054,7 @@ html, body {
   .nav-icon { width: 24px; height: 24px; }
 
   /* ── MAIN ocupa todo ──────────────────────────────── */
-  .main { width: 100%; height: calc(100% - 56px); }
+  .main { width: 100%; height: 100%; }
 
   /* ── VISOR ────────────────────────────────────────── */
   .viewer-body  { padding: 0 12px 12px; }
@@ -1169,14 +1169,9 @@ html, body {
 
   /* partitura: altura fija que muestra el SVG completo */
   .rp-score-wrap {
-    height: 160px;
+    height: 80px;
     flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
   }
-
-  
 
   /* controles en una sola fila */
   .rp-controls {
@@ -1219,4 +1214,62 @@ html, body {
   /* countdown */
   #rp-countdown-overlay { border-radius: 0; }
   .rp-cd-number { font-size: 4rem; }
+
+  /* custom select */
+  .rp-custom-select {
+    position: relative;
+    width: 100%;
+  }
+  .rp-custom-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text);
+    transition: border-color 0.2s;
+  }
+  .rp-custom-select-trigger:hover { border-color: var(--gold-dim); }
+  .rp-custom-select-arrow {
+    font-size: 0.55rem;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+  .rp-custom-select.open .rp-custom-select-arrow { transform: rotate(180deg); }
+  .rp-custom-select-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    z-index: 100;
+    max-height: 220px;
+    overflow-y: auto;
+  }
+  .rp-custom-select.open .rp-custom-select-dropdown { display: block; }
+  .rp-custom-select-nivel {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.5rem;
+    letter-spacing: 0.3em;
+    color: var(--gold-dim);
+    padding: 8px 12px 4px;
+    border-top: 1px solid var(--border);
+  }
+  .rp-custom-select-option {
+    padding: 7px 12px;
+    font-size: 0.68rem;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .rp-custom-select-option:hover { background: var(--gold-glow); color: var(--text); }
+  .rp-custom-select-option.active { color: var(--gold); }
 }
