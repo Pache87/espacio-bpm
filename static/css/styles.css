@@ -201,7 +201,7 @@ section h2::after {
       rgba(0,0,0,.60) 40%,
       rgba(0,0,0,.80) 100%
     ),
-    url("img/hero.jpg") center 22% / cover no-repeat;
+    url("../img/hero.jpg") center 22% / cover no-repeat;
   z-index: 0;
 }
 
