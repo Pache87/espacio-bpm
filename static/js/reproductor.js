@@ -14,12 +14,12 @@ let rafId    = null;
 let lastBeat = -1;
 
 // Referencias cacheadas — evitan getElementById en cada frame
-const rpVideo       = document.getElementById('rp-video');
+const rpVideo        = document.getElementById('rp-video');
 const rpProgressFill = document.getElementById('rp-progress-fill');
-const rpBeatDots    = [0,1,2,3].map(i => document.getElementById('rp-bd' + i));
-let   rpOverlayEl   = null;   // se asigna al crear el overlay en cargarEjercicio
-let   rpOverlayNum  = null;
-let   lastCdBeat    = -1;     // para el countdown, evita writes innecesarios
+const rpBeatDots     = [0,1,2,3].map(i => document.getElementById('rp-bd' + i));
+let   rpOverlayEl    = null;
+let   rpOverlayNum   = null;
+let   lastCdBeat     = -1;
 
 function rpClearAllNotes() {
   document.querySelectorAll('.note-active').forEach(el => el.classList.remove('note-active'));
@@ -34,7 +34,7 @@ function rpDeactivateNotes(ids) {
 let lastBeatDot = -1;
 function rpUpdateBeatDots(t) {
   const b = Math.floor((t / msPerBeat) % 4);
-  if (b === lastBeatDot) return;          // nada cambió, no tocar el DOM
+  if (b === lastBeatDot) return;
   rpBeatDots[lastBeatDot]?.classList.remove('active');
   rpBeatDots[b]?.classList.add('active');
   lastBeatDot = b;
@@ -52,7 +52,6 @@ function rpUpdateCountdownOverlay(elapsedMs) {
   if (beat !== lastCdBeat && rpOverlayNum) {
     lastCdBeat = beat;
     rpOverlayNum.textContent = beat + 1;
-    // Alternar clase en vez de void offsetWidth (evita reflow forzado)
     rpOverlayNum.classList.toggle('pop-alt', beat % 2 === 0);
   }
 }
@@ -128,12 +127,10 @@ function cargarEjercicio(id) {
   .then(([svg, timemap]) => {
     scoreWrap.innerHTML = svg;
 
-    // Fix viewBox para centrar SVG
     const svgOuter = scoreWrap.querySelector('svg');
     const svgInner = scoreWrap.querySelector('.definition-scale');
     const svgEl = svgInner || svgOuter;
 
-    // Leer dimensiones naturales ANTES de borrar los atributos
     const svgNaturalW = parseFloat(svgOuter?.getAttribute('width'))  || 2400;
     const svgNaturalH = parseFloat(svgOuter?.getAttribute('height')) || 350;
 
@@ -144,6 +141,7 @@ function cargarEjercicio(id) {
       svgOuter.style.width = '100%';
       svgOuter.style.height = window.innerWidth <= 768 ? '100%' : 'auto';
     }
+
     const cardActual = document.querySelector(`.ej-card[data-id="${id}"]`);
 
     if (svgOuter) {
@@ -152,24 +150,21 @@ function cargarEjercicio(id) {
         viewBox = cardActual?.dataset.viewboxmobile || `0 0 ${svgNaturalW} ${svgNaturalH}`;
       } else {
         viewBox = cardActual?.dataset.viewbox || '0 0 24000 3550';
-        // el viewBox de desktop va en svgEl (puede ser .definition-scale)
         if (svgEl) {
           svgEl.setAttribute('viewBox', viewBox);
           svgEl.setAttribute('preserveAspectRatio', 'xMidYMid meet');
         }
-        viewBox = null; // ya seteado
+        viewBox = null;
       }
       if (viewBox) {
         svgOuter.setAttribute('viewBox', viewBox);
         svgOuter.setAttribute('preserveAspectRatio', 'xMinYMid slice');
       }
     }
-    
-    // Título del ejercicio
+
     const tituloEl = document.getElementById('rp-ej-titulo');
     if (tituloEl) tituloEl.textContent = cardActual?.dataset.nombre || id.toUpperCase();
 
-    // Overlay countdown
     const existing = document.getElementById('rp-countdown-overlay');
     if (existing) existing.remove();
     const overlay = document.createElement('div');
@@ -203,7 +198,6 @@ function cargarEjercicio(id) {
       comentEl.style.display = comentario ? 'block' : 'none';
     }
 
-    // Descripción del ejercicio
     const desc = cardActual?.dataset.descripcion || '';
     const descOverlay = document.getElementById('rp-desc-overlay');
     const descText = document.getElementById('rp-desc-text');
@@ -224,6 +218,85 @@ function cargarEjercicio(id) {
   });
 }
 
+function cargarPrograma() {
+  fetch('/static/grooves/programa.json')
+    .then(r => r.json())
+    .then(data => {
+      const lista    = document.getElementById('rp-lista');
+      const dropdown = document.getElementById('rp-custom-select-dropdown');
+      const trigger  = document.getElementById('rp-custom-select-trigger');
+      const label    = document.getElementById('rp-custom-select-label');
+      lista.innerHTML = '';
+      if (dropdown) dropdown.innerHTML = '';
+
+      data.niveles.forEach(nivel => {
+        const nivelDiv = document.createElement('div');
+        nivelDiv.className = 'rp-nivel';
+        nivelDiv.innerHTML = `<div class="rp-nivel-label">${nivel.nombre}</div>`;
+
+        if (dropdown) {
+          const nivelLabel = document.createElement('div');
+          nivelLabel.className = 'rp-custom-select-nivel';
+          nivelLabel.textContent = nivel.nombre;
+          dropdown.appendChild(nivelLabel);
+        }
+
+        nivel.ejercicios.forEach(ej => {
+          const card = document.createElement('div');
+          card.className = 'ej-card';
+          card.dataset.id            = ej.id;
+          card.dataset.nombre        = ej.nombre      || ej.id;
+          card.dataset.comentario    = ej.comentario  || '';
+          card.dataset.descripcion   = ej.descripcion || '';
+          card.dataset.viewbox       = ej.viewBox       || '0 0 24000 3550';
+          card.dataset.viewboxmobile = ej.viewBoxMobile || '';
+          card.innerHTML = `<span class="ej-nombre">${ej.nombre}</span>`;
+          card.addEventListener('click', () => cargarEjercicio(ej.id));
+          nivelDiv.appendChild(card);
+
+          if (dropdown) {
+            const opt = document.createElement('div');
+            opt.className = 'rp-custom-select-option';
+            opt.textContent = ej.nombre;
+            opt.dataset.id           = ej.id;
+            opt.dataset.nombre       = ej.nombre      || ej.id;
+            opt.dataset.comentario   = ej.comentario  || '';
+            opt.dataset.descripcion  = ej.descripcion || '';
+            opt.dataset.viewbox       = ej.viewBox       || '0 0 24000 3550';
+            opt.dataset.viewboxmobile = ej.viewBoxMobile || '';
+            opt.addEventListener('click', () => {
+              cargarEjercicio(ej.id);
+              if (label) label.textContent = ej.nombre;
+              dropdown.classList.remove('open');
+              dropdown.querySelectorAll('.rp-custom-select-option').forEach(o => o.classList.remove('active'));
+              opt.classList.add('active');
+            });
+            dropdown.appendChild(opt);
+          }
+        });
+
+        lista.appendChild(nivelDiv);
+      });
+
+      if (trigger && dropdown) {
+        trigger.addEventListener('click', () => {
+          dropdown.classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+          if (!trigger.closest('.rp-custom-select').contains(e.target)) {
+            dropdown.classList.remove('open');
+          }
+        });
+      }
+
+      const primero = data.niveles?.[0]?.ejercicios?.[0]?.id;
+      if (primero) cargarEjercicio(primero);
+    })
+    .catch(() => {
+      document.getElementById('rp-lista').innerHTML = '<p class="rp-loading">Error cargando programa</p>';
+    });
+}
+
 function rpSyncSelect(id) {
   const label    = document.getElementById('rp-custom-select-label');
   const dropdown = document.getElementById('rp-custom-select-dropdown');
@@ -236,14 +309,8 @@ function rpSyncSelect(id) {
   }
 }
 
-// Sincroniza el select mobile al navegar por cards desktop
-function rpSyncSelect(id) {
-  const sel = document.getElementById('rp-select-mobile');
-  if (sel) sel.value = id;
-}
 // ============================================================
 // PAUSA THREE.JS cuando no está en pantalla
-// three-viewer.js debe exponer window.threeViewerPause / Resume
 // ============================================================
 (function() {
   const panelVisor = document.getElementById('panel-visor');
