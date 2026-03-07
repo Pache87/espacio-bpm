@@ -26,15 +26,7 @@ const JWT_SECRET = "bpm2024jwt@#~€";
 const DB_PATH = path.join(process.cwd(), "usuarios.json");
 
 function cargarDb() {
-  console.log("DB_PATH:", DB_PATH);
-  try {
-    const raw = fs.readFileSync(DB_PATH, "utf-8");
-    console.log("raw length:", raw.length);
-    return JSON.parse(raw);
-  } catch(e) {
-    console.log("ERROR cargarDb:", e.message);
-    throw e;
-  }
+  return JSON.parse(fs.readFileSync(DB_PATH, "utf-8"));
 }
 
 function guardarDb(data) {
