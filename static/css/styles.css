@@ -415,6 +415,11 @@ section h2::after {
   transition: all .25s ease;
 }
 
+input:-webkit-autofill ~ label {
+  top: -10px;
+  font-size: .75rem;
+}
+
 .input-group input:focus + label,
 .input-group input:not(:placeholder-shown) + label {
   top: -8px;
