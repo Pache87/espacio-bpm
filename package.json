@@ -1,8 +1,13 @@
 {
   "name": "espacio-bpm",
   "version": "1.0.0",
+  "scripts": {
+    "start": "node api/index.js",
+    "dev": "node api/index.js"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "express-session": "^1.17.3"
   }
 }
+

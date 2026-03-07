@@ -142,7 +142,7 @@ function cargarEjercicio(id) {
       svgOuter.removeAttribute('height');
       svgOuter.removeAttribute('style');
       svgOuter.style.width = '100%';
-      svgOuter.style.height = 'auto';
+      svgOuter.style.height = window.innerWidth <= 768 ? '100%' : 'auto';
     }
     const cardActual = document.querySelector(`.ej-card[data-id="${id}"]`);
 
@@ -161,7 +161,7 @@ function cargarEjercicio(id) {
       }
       if (viewBox) {
         svgOuter.setAttribute('viewBox', viewBox);
-        svgOuter.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+        svgOuter.setAttribute('preserveAspectRatio', 'xMinYMid slice');
       }
     }
     

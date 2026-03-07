@@ -743,7 +743,7 @@ html, body {
 
 .rp-score-wrap svg {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   overflow: hidden;
 }
@@ -1169,9 +1169,14 @@ html, body {
 
   /* partitura: altura fija que muestra el SVG completo */
   .rp-score-wrap {
-    height: 80px;
+    height: 160px;
     flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
+
+  
 
   /* controles en una sola fila */
   .rp-controls {

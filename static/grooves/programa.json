@@ -10,23 +10,23 @@
           "descripcion": "Introducción a las figuras básicas. Redonda, silencio de blanca y blanca. Enfocate en mantener el pulso parejo.",
           "comentario": "",
           "viewBox": "8500 0 0.1 3550",
-          "viewBoxMobile": "8500 0 2400 3550"
+          "viewBoxMobile": "45 0 700 160"
         },
         {
           "id": "ej2",
           "nombre": "Ejercicio 2",
           "descripcion": "Placeholder — reemplazar con descripción real.",
           "comentario": "",
-          "viewBox": "2200 0 15000 3550",
-          "viewBoxMobile": "2200 0 2400 3550"
+          "viewBox": "800 0 18000 3550",
+          "viewBoxMobile": "30 0 550 160"
         },
         {
           "id": "ej3",
           "nombre": "Ejercicio 3",
           "descripcion": "Placeholder — reemplazar con descripción real.",
           "comentario": "",
-          "viewBox": "2500 0 15000 3550",
-          "viewBoxMobile": "2500 0 2400 3550"
+          "viewBox": "1500 0 18000 3550",
+          "viewBoxMobile": "25 0 510 160"
         }
       ]
     },
