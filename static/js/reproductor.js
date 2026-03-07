@@ -258,16 +258,16 @@ function cargarPrograma() {
             const opt = document.createElement('div');
             opt.className = 'rp-custom-select-option';
             opt.textContent = ej.nombre;
-            opt.dataset.id           = ej.id;
-            opt.dataset.nombre       = ej.nombre      || ej.id;
-            opt.dataset.comentario   = ej.comentario  || '';
-            opt.dataset.descripcion  = ej.descripcion || '';
+            opt.dataset.id            = ej.id;
+            opt.dataset.nombre        = ej.nombre      || ej.id;
+            opt.dataset.comentario    = ej.comentario  || '';
+            opt.dataset.descripcion   = ej.descripcion || '';
             opt.dataset.viewbox       = ej.viewBox       || '0 0 24000 3550';
             opt.dataset.viewboxmobile = ej.viewBoxMobile || '';
             opt.addEventListener('click', () => {
               cargarEjercicio(ej.id);
               if (label) label.textContent = ej.nombre;
-              dropdown.classList.remove('open');
+              trigger.closest('.rp-custom-select').classList.remove('open');
               dropdown.querySelectorAll('.rp-custom-select-option').forEach(o => o.classList.remove('active'));
               opt.classList.add('active');
             });
@@ -279,12 +279,14 @@ function cargarPrograma() {
       });
 
       if (trigger && dropdown) {
-        trigger.addEventListener('click', () => {
-          dropdown.classList.toggle('open');
+        trigger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          trigger.closest('.rp-custom-select').classList.toggle('open');
         });
         document.addEventListener('click', (e) => {
-          if (!trigger.closest('.rp-custom-select').contains(e.target)) {
-            dropdown.classList.remove('open');
+          const select = document.getElementById('rp-custom-select');
+          if (select && !select.contains(e.target)) {
+            select.classList.remove('open');
           }
         });
       }
