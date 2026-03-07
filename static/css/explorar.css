@@ -1122,6 +1122,7 @@ html, body {
   }
 
   /* select mobile: visible solo en mobile */
+  /* select mobile: visible solo en mobile */
   .rp-select-mobile-wrap {
     display: block;
     flex-shrink: 0;
@@ -1130,18 +1131,54 @@ html, body {
     background: var(--bg);
   }
 
-  .rp-select-mobile {
+  .rp-custom-select {
+    position: relative;
     width: 100%;
+  }
+  .rp-custom-select-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: var(--surface);
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: 3px;
     font-family: 'DM Sans', sans-serif;
     font-size: 0.7rem;
-    font-weight: 400;
-    padding: 3px 8px;
+    padding: 5px 10px;
     cursor: pointer;
-    appearance: auto;
+  }
+  .rp-custom-select-arrow { font-size: 0.5rem; color: var(--gold); }
+  .rp-custom-select-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: none;
+    z-index: 300;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  .rp-custom-select-dropdown.open { display: block; }
+  .rp-custom-select-nivel {
+    padding: 6px 10px 3px;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  .rp-custom-select-option {
+    padding: 7px 14px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    color: var(--text);
+  }
+  .rp-custom-select-option:hover,
+  .rp-custom-select-option.active {
+    background: var(--gold-glow);
+    color: var(--gold);
   }
   /* los optgroup (niveles) los colorea el sistema nativo */
 

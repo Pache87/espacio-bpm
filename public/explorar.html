@@ -105,9 +105,13 @@
         <div class="rp-left">
           <!-- SELECT MOBILE — visible solo en @media mobile via CSS -->
           <div class="rp-select-mobile-wrap" id="rp-select-mobile-wrap">
-            <select id="rp-select-mobile" class="rp-select-mobile">
-              <option value="" disabled selected>— Elegí un ejercicio —</option>
-            </select>
+            <div class="rp-custom-select" id="rp-custom-select">
+              <div class="rp-custom-select-trigger" id="rp-custom-select-trigger">
+                <span id="rp-custom-select-label">— Elegí un ejercicio —</span>
+                <span class="rp-custom-select-arrow">▼</span>
+              </div>
+              <div class="rp-custom-select-dropdown" id="rp-custom-select-dropdown"></div>
+            </div>
           </div>
           <div class="rp-ej-header">
             <div class="rp-ej-titulo" id="rp-ej-titulo"></div>

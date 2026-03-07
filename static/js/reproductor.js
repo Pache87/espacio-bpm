@@ -224,68 +224,16 @@ function cargarEjercicio(id) {
   });
 }
 
-function cargarPrograma() {
-  fetch('/static/grooves/programa.json')
-    .then(r => r.json())
-    .then(data => {
-      const lista  = document.getElementById('rp-lista');
-      const select = document.getElementById('rp-select-mobile');
-      lista.innerHTML = '';
-      if (select) select.innerHTML = '<option value="" disabled selected>— Elegí un ejercicio —</option>';
-
-      data.niveles.forEach(nivel => {
-        // cards desktop
-        const nivelDiv = document.createElement('div');
-        nivelDiv.className = 'rp-nivel';
-        nivelDiv.innerHTML = `<div class="rp-nivel-label">${nivel.nombre}</div>`;
-
-        // optgroup mobile
-        const optgroup = select ? document.createElement('optgroup') : null;
-        if (optgroup) optgroup.label = nivel.nombre;
-
-        nivel.ejercicios.forEach(ej => {
-          const card = document.createElement('div');
-          card.className = 'ej-card';
-          card.dataset.id          = ej.id;
-          card.dataset.nombre      = ej.nombre      || ej.id;
-          card.dataset.comentario  = ej.comentario  || '';
-          card.dataset.descripcion = ej.descripcion || '';
-          card.dataset.viewbox       = ej.viewBox       || '0 0 24000 3550';
-          card.dataset.viewboxmobile = ej.viewBoxMobile || '';
-          card.innerHTML = `<span class="ej-nombre">${ej.nombre}</span>`;
-          card.addEventListener('click', () => cargarEjercicio(ej.id));
-          nivelDiv.appendChild(card);
-
-          if (optgroup) {
-            const opt = document.createElement('option');
-            opt.value               = ej.id;
-            opt.textContent         = ej.nombre;
-            opt.dataset.nombre      = ej.nombre      || ej.id;
-            opt.dataset.comentario  = ej.comentario  || '';
-            opt.dataset.descripcion = ej.descripcion || '';
-            opt.dataset.viewbox       = ej.viewBox       || '0 0 24000 3550';
-            opt.dataset.viewboxmobile = ej.viewBoxMobile || '';
-            optgroup.appendChild(opt);
-          }
-        });
-
-        lista.appendChild(nivelDiv);
-        if (select && optgroup) select.appendChild(optgroup);
-      });
-
-      if (select) {
-        select.addEventListener('change', () => {
-          if (select.value) cargarEjercicio(select.value);
-        });
-      }
-
-      // Cargar el primer ejercicio por defecto
-      const primero = data.niveles?.[0]?.ejercicios?.[0]?.id;
-      if (primero) cargarEjercicio(primero);
-    })
-    .catch(() => {
-      document.getElementById('rp-lista').innerHTML = '<p class="rp-loading">Error cargando programa</p>';
-    });
+function rpSyncSelect(id) {
+  const label    = document.getElementById('rp-custom-select-label');
+  const dropdown = document.getElementById('rp-custom-select-dropdown');
+  if (!label || !dropdown) return;
+  const opt = dropdown.querySelector(`.rp-custom-select-option[data-id="${id}"]`);
+  if (opt) {
+    label.textContent = opt.textContent;
+    dropdown.querySelectorAll('.rp-custom-select-option').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+  }
 }
 
 // Sincroniza el select mobile al navegar por cards desktop
