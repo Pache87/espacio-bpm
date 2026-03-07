@@ -222,7 +222,7 @@ function previewMaterial(id, ruta, tipo) {
   if (tipo === "pdf") {
     empty.style.display  = "none";
     iframe.style.display = "block";
-    iframe.src = `/static/${ruta}`;
+    iframe.src = `/static/${encodeURIComponent(ruta).replace(/%2F/g, "/")}`;
   } else if (tipo === "audio") {
     iframe.style.display = "none";
     empty.style.display  = "flex";
