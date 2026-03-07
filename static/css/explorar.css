@@ -1121,12 +1121,18 @@ html, body {
   }
 
   /* select mobile: visible solo en mobile */
+  /* DESPUÉS */
   .rp-select-mobile-wrap {
     display: block;
     flex-shrink: 0;
     padding: 3px 12px;
     border-bottom: 1px solid var(--border);
     background: var(--bg);
+    position: relative;
+    z-index: 50;
+    overflow: visible;
+  }
+
   }
 
   .rp-select-mobile {
@@ -1250,7 +1256,7 @@ html, body {
     border: 1px solid var(--border);
     border-top: none;
     border-radius: 0 0 4px 4px;
-    z-index: 100;
+    z-index: 500;
     max-height: 220px;
     overflow-y: auto;
   }
@@ -1272,4 +1278,4 @@ html, body {
   }
   .rp-custom-select-option:hover { background: var(--gold-glow); color: var(--text); }
   .rp-custom-select-option.active { color: var(--gold); }
-}
+
